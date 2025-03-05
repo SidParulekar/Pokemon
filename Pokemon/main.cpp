@@ -13,31 +13,42 @@ int main() {
     cout << "\nWelcome " + player_name + " to the start of your adventure in the Pokemon World." << endl;
 
     cout << "I am Professor Oak. Today is a momentous day—you’ll be choosing your very first Pokémon.\n";
-    cout << "You can choose one of the following Pokémon:\n";
-    cout << "1. Bulbasaur\n2. Charmander\n3. Squirtle\n";
-    cout << "Which Pokémon would you like to choose? Enter the number: ";
 
+    string chosen_pokemon;
     int choice;
-    cin >> choice;
 
-    switch (choice)
+    while (chosen_pokemon == "")
     {
-    case 1:
-        cout << "You chose Bulbasaur! A wise choice.\n";
-        break;
+        cout << "You can choose one of the following Pokémon:\n";
+        cout << "1. Bulbasaur\n2. Charmander\n3. Squirtle\n";
+        cout << "Which Pokémon would you like to choose? Enter the number: ";
 
-    case 2:
-        cout << "You chose Charmander! A fiery choice.\n";
-        break;
+        
+        cin >> choice;
 
-    case 3:
-        cout << "You chose Squirtle! A cool choice.\n";
-        break;
+        switch (choice)
+        {
+        case 1:
+            chosen_pokemon = "Bulbasaur";
+            cout << "You chose Bulbasaur! A wise choice. Bulbasaur is always ready to grow on you!\n";
+            break;
 
-    default:
-        cout << "Do not have any pokemon in that slot. These are the only pokemon you have at the moment. You will unlock more as you progress.\n";
-        cout << "Choose from the above available pokemon";
-    }
+        case 2:
+            chosen_pokemon = "Charmander";
+            cout << "You chose Charmander! A fiery choice. Charmander is yours!\n";
+            break;
 
+        case 3:
+            chosen_pokemon = "Squirtle";
+            cout << "You chose Squirtle! A cool choice. Squirtle will keep you cool under pressure!\n";
+            break;
+
+        default:
+            cout << "Do not have any Pokemon in that slot. These are the only Pokemon you have at the moment.\n";
+            cout << "You will unlock more as you progress.\n";
+            cout << "Choose from the available Pokemon\n\n";
+            break;
+        }
+    }     
     return 0;
 }
