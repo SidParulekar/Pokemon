@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+*.vsidx
+*.db
+*.db
+*.opendb
+*.ipch
+*.db
+*.db-shm
+*.db-wal
