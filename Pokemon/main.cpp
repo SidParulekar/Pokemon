@@ -1,0 +1,84 @@
+#include <iostream>
+
+using namespace std;
+
+enum class Pokemon
+{
+    Bulbasaur, 
+    Charmander,
+    Squirtle,
+    InvalidChoice
+};
+
+string ChosenPokemonName(Pokemon choice)
+{
+    switch (choice)
+    {
+    case Pokemon::Bulbasaur:
+        return "Bulbasur";
+        break;
+
+    case Pokemon::Charmander:
+        return "Charmander";
+        break;
+
+    case Pokemon::Squirtle:
+        return "Squirtle";
+        break;
+
+    }
+}
+
+int main() {
+    
+    cout << "Trainer! Before you embark on your journey, the Pokemon world needs to know who you are." << endl;
+    cout << "Time to step up and tell us your name and remember a great name is the start of every great adventure." << endl;
+
+    string player_name; 
+    cin >> player_name;
+
+    cout << "\nWelcome " + player_name + " to the start of your adventure in the Pokemon World." << endl;
+
+    cout << "\nI am Professor Oak. Today is a momentous day—you will be choosing your very first Pokémon.\n";
+
+    Pokemon chosen_pokemon = Pokemon::InvalidChoice;
+    int choice;
+
+    while (chosen_pokemon == Pokemon::InvalidChoice)
+    {
+        cout << "You can choose one of the following Pokémon:\n";
+        cout << "1. Bulbasaur\n2. Charmander\n3. Squirtle\n";
+        cout << "Which Pokémon would you like to choose? Enter the number: ";
+
+        
+        cin >> choice;
+
+        switch (choice)
+        {
+        case 1:
+            chosen_pokemon = Pokemon::Bulbasaur; 
+            cout << "\nYou chose Bulbasaur! A wise choice. Bulbasaur is always ready to grow on you!\n";
+            break;
+
+        case 2:
+            chosen_pokemon = Pokemon::Charmander;           
+            cout << "\nYou chose Charmander! A fiery choice. Charmander is yours!\n";
+            break;
+
+        case 3:
+            chosen_pokemon = Pokemon::Squirtle; 
+            cout << "\nYou chose Squirtle! A cool choice. Squirtle will keep you cool under pressure!\n";
+            break;
+
+        default:
+            cout << "Do not have any Pokemon in that slot. These are the only Pokemon you have at the moment.\n";
+            cout << "You will unlock more as you progress.\n";
+            cout << "Choose from the available Pokemon\n\n";
+            break;
+        }
+    }
+
+    cout << ChosenPokemonName(chosen_pokemon) + " and you, " + player_name + " are going to be really good friends\n";
+    cout << "You are now ready to embark on your journey! Get ready to explore the vast world of Pokemon!\n";
+    return 0;
+}
