@@ -2,6 +2,14 @@
 
 using namespace std;
 
+enum Pokemon
+{
+    Bulbasaur, 
+    Charmander,
+    Squirtle,
+    InvalidChoice
+};
+
 int main() {
     
     cout << "Trainer! Before you embark on your journey, the Pokemon world needs to know who you are." << endl;
@@ -12,12 +20,13 @@ int main() {
 
     cout << "\nWelcome " + player_name + " to the start of your adventure in the Pokemon World." << endl;
 
-    cout << "I am Professor Oak. Today is a momentous day—you’ll be choosing your very first Pokémon.\n";
+    cout << "\nI am Professor Oak. Today is a momentous day—you will be choosing your very first Pokémon.\n";
 
-    string chosen_pokemon;
+    Pokemon chosen_pokemon = InvalidChoice;
+    string pokemon_choice;
     int choice;
 
-    while (chosen_pokemon == "")
+    while (chosen_pokemon == InvalidChoice)
     {
         cout << "You can choose one of the following Pokémon:\n";
         cout << "1. Bulbasaur\n2. Charmander\n3. Squirtle\n";
@@ -29,18 +38,21 @@ int main() {
         switch (choice)
         {
         case 1:
-            chosen_pokemon = "Bulbasaur";
-            cout << "You chose Bulbasaur! A wise choice. Bulbasaur is always ready to grow on you!\n";
+            chosen_pokemon = Bulbasaur;
+            pokemon_choice = "Bulbasaur";
+            cout << "\nYou chose Bulbasaur! A wise choice. Bulbasaur is always ready to grow on you!\n";
             break;
 
         case 2:
-            chosen_pokemon = "Charmander";
-            cout << "You chose Charmander! A fiery choice. Charmander is yours!\n";
+            chosen_pokemon = Charmander;
+            pokemon_choice = "Charmander";
+            cout << "\nYou chose Charmander! A fiery choice. Charmander is yours!\n";
             break;
 
         case 3:
-            chosen_pokemon = "Squirtle";
-            cout << "You chose Squirtle! A cool choice. Squirtle will keep you cool under pressure!\n";
+            chosen_pokemon = Squirtle;
+            pokemon_choice = "Squirtle";
+            cout << "\nYou chose Squirtle! A cool choice. Squirtle will keep you cool under pressure!\n";
             break;
 
         default:
@@ -49,6 +61,9 @@ int main() {
             cout << "Choose from the available Pokemon\n\n";
             break;
         }
-    }     
+    }
+
+    cout << pokemon_choice + " and you, " + player_name + " are going to be really good friends\n";
+    cout << "You are now ready to embark on your journey! Get ready to explore the vast world of Pokemon!\n";
     return 0;
 }
