@@ -2,13 +2,32 @@
 
 using namespace std;
 
-enum Pokemon
+enum class Pokemon
 {
     Bulbasaur, 
     Charmander,
     Squirtle,
     InvalidChoice
 };
+
+string ChosenPokemonName(Pokemon choice)
+{
+    switch (choice)
+    {
+    case Pokemon::Bulbasaur:
+        return "Bulbasur";
+        break;
+
+    case Pokemon::Charmander:
+        return "Charmander";
+        break;
+
+    case Pokemon::Squirtle:
+        return "Squirtle";
+        break;
+
+    }
+}
 
 int main() {
     
@@ -22,11 +41,10 @@ int main() {
 
     cout << "\nI am Professor Oak. Today is a momentous day—you will be choosing your very first Pokémon.\n";
 
-    Pokemon chosen_pokemon = InvalidChoice;
-    string pokemon_choice;
+    Pokemon chosen_pokemon = Pokemon::InvalidChoice;
     int choice;
 
-    while (chosen_pokemon == InvalidChoice)
+    while (chosen_pokemon == Pokemon::InvalidChoice)
     {
         cout << "You can choose one of the following Pokémon:\n";
         cout << "1. Bulbasaur\n2. Charmander\n3. Squirtle\n";
@@ -38,20 +56,17 @@ int main() {
         switch (choice)
         {
         case 1:
-            chosen_pokemon = Bulbasaur;
-            pokemon_choice = "Bulbasaur";
+            chosen_pokemon = Pokemon::Bulbasaur; 
             cout << "\nYou chose Bulbasaur! A wise choice. Bulbasaur is always ready to grow on you!\n";
             break;
 
         case 2:
-            chosen_pokemon = Charmander;
-            pokemon_choice = "Charmander";
+            chosen_pokemon = Pokemon::Charmander;           
             cout << "\nYou chose Charmander! A fiery choice. Charmander is yours!\n";
             break;
 
         case 3:
-            chosen_pokemon = Squirtle;
-            pokemon_choice = "Squirtle";
+            chosen_pokemon = Pokemon::Squirtle; 
             cout << "\nYou chose Squirtle! A cool choice. Squirtle will keep you cool under pressure!\n";
             break;
 
@@ -63,7 +78,7 @@ int main() {
         }
     }
 
-    cout << pokemon_choice + " and you, " + player_name + " are going to be really good friends\n";
+    cout << ChosenPokemonName(chosen_pokemon) + " and you, " + player_name + " are going to be really good friends\n";
     cout << "You are now ready to embark on your journey! Get ready to explore the vast world of Pokemon!\n";
     return 0;
 }
