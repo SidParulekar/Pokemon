@@ -27,6 +27,9 @@ public:
 
     Pokemon()
     {
+        /*name = "Pikachu";
+        type = PokemonType::ELECTRIC;
+        health = 10;*/
     }
 
     Pokemon(string p_name, PokemonType p_type, int p_health) 
@@ -34,11 +37,25 @@ public:
         name = p_name;
         type = p_type;
         health = p_health;
+
+        cout << name << " has been released.\n";
+    }
+
+    Pokemon(const Pokemon& other) {
+        name = other.name;
+        type = other.type;
+        health = other.health;
+        cout << "A new Pokemon has been copied from " << other.name << "!\n";
     }
 
     void Attack() 
     { 
         cout << name << "Attacks with a powerful move!\n"; 
+    }
+
+    ~Pokemon()
+    {
+        cout << name << " has been put back in the poke ball.\n";
     }
 
 };
@@ -50,6 +67,11 @@ public:
     Pokemon player_pokemon;
 
     PokemonOptions chosen_pokemon;
+
+    Player()
+    {
+        //player_name = "Trainer";
+    }
 
     void EnterName()
     {
@@ -86,6 +108,11 @@ public:
         }
 
         return chosen_pokemon;
+    }
+
+    ~Player()
+    {
+
     }
 };
 
@@ -148,6 +175,9 @@ public:
         cout << player.player_pokemon.name + " and you, " + player.player_name + " are going to be really good friends\n";
         cout << "You are now ready to embark on your journey! Get ready to explore the vast world of Pokemon!\n";
     }
+
+    ~ProfessorOak()
+    {}
 };
 
 /*string ChosenPokemonName(PokemonOptions choice)
