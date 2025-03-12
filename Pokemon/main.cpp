@@ -1,4 +1,5 @@
 #include <iostream>
+#include "PokemonType.h"
 
 using namespace std;
 
@@ -8,14 +9,6 @@ enum class PokemonOptions
     Charmander,
     Squirtle,
     InvalidChoice
-};
-
-enum class PokemonType
-{
-    FIRE,
-    GRASS,
-    WATER,
-    ELECTRIC
 };
 
 void ClearScreen()
