@@ -128,11 +128,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Pokemon.cpp" />
+    <ClCompile Include="ProfessorOak.cpp" />
     <ClCompile Include="UtilityFunctions.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Pokemon.h" />
     <ClInclude Include="PokemonOptions.h" />
     <ClInclude Include="PokemonType.h" />
+    <ClInclude Include="ProfessorOak.h" />
     <ClInclude Include="UtilityFunctions.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
