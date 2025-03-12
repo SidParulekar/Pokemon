@@ -1,15 +1,9 @@
 #include <iostream>
 #include "PokemonType.h"
+#include "PokemonOptions.h"
 
 using namespace std;
 
-enum class PokemonOptions
-{
-    Bulbasaur = 1, 
-    Charmander,
-    Squirtle,
-    InvalidChoice
-};
 
 void ClearScreen()
 {
