@@ -1,8 +1,6 @@
 #include <iostream>
 #include "UtilityFunctions.h"
-#include "PokemonType.h"
 #include "PokemonOptions.h"
-#include "Pokemon.h"
 #include "Player.h"
 #include "ProfessorOak.h"
 
