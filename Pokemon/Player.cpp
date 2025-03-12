@@ -1,4 +1,8 @@
 #include "Player.h"
+#include "Pokemon.h"
+#include "PokemonOptions.h"
+#include "PokemonType.h"
+
 
 Player::Player()
 {

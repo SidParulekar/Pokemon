@@ -1,4 +1,5 @@
 #include "Pokemon.h"
+#include "PokemonType.h"
 
 Pokemon::Pokemon()
 {

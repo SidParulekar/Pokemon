@@ -1,4 +1,6 @@
 #include "ProfessorOak.h"
+#include "Player.h"
+#include "PokemonOptions.h"
 
 ProfessorOak::ProfessorOak()
 {}

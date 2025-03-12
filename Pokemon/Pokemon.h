@@ -1,8 +1,9 @@
 #pragma once
 #include <iostream>
-#include "PokemonType.h"
 
 using namespace std;
+
+enum class PokemonType;
 
 class Pokemon
 {
