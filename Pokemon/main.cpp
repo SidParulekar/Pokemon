@@ -1,18 +1,9 @@
 #include <iostream>
 #include "PokemonType.h"
 #include "PokemonOptions.h"
+#include "UtilityFunctions.h"
 
 using namespace std;
-
-
-void ClearScreen()
-{
-#ifdef _WIN32
-    system("cls");
-#else
-    (void)system("clear");
-#endif
-}
 
 class Pokemon
 {
@@ -303,10 +294,9 @@ int main() {
 
     player.EnterName();
 
-    ClearScreen();
+    UtilityFunctions::ClearScreen();
 
-    //Clear buffer from the enter button pressed for accepting user input to allow player to press enter for next dialogue
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    UtilityFunctions::ClearBuffer(); 
     
     oak.PokemonSelectIntro();
     player.NextDialogue();
@@ -315,12 +305,12 @@ int main() {
 
     while (player.ChoosePokemon() == PokemonOptions::InvalidChoice)
     {
-        ClearScreen();
+        UtilityFunctions::ClearScreen(); 
         oak.ChoiceReaction(player);
         oak.OfferPokemonChoices();   
     }
 
-    cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+    UtilityFunctions::ClearBuffer(); 
 
     oak.ChoiceReaction(player);
     player.NextDialogue();
@@ -328,11 +318,11 @@ int main() {
     oak.CongratulatePlayer(player);
     player.NextDialogue();
 
-    ClearScreen();
+    UtilityFunctions::ClearScreen();  
     oak.ExplainMainQuest(player);
     player.NextDialogue(); 
 
-    ClearScreen(); 
+    UtilityFunctions::ClearScreen();  
     GameLoop(player);
 
     return 0;
