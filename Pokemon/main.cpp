@@ -263,8 +263,6 @@ void GameLoop(Player& player)
 
     int choice;
 
-    ClearScreen(); 
-
     while (keepPlaying) {
         cout << "What would you like to do next " + player.player_name + "?\n";
         cout << "1. Battle Wild Pokémon\n";
@@ -345,7 +343,9 @@ int main() {
 
     ClearScreen();
     oak.ExplainMainQuest(player);
+    player.NextDialogue(); 
 
+    ClearScreen(); 
     GameLoop(player);
 
     return 0;
