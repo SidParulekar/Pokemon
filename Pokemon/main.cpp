@@ -18,6 +18,15 @@ enum class PokemonType
     ELECTRIC
 };
 
+void ClearScreen()
+{
+#ifdef _WIN32
+    system("cls");
+#else
+    (void)system("clear");
+#endif
+}
+
 class Pokemon
 {
 public:
@@ -38,7 +47,7 @@ public:
         type = p_type;
         health = p_health;
 
-        cout << name << " has been released.\n";
+        //cout << name << " has been released.\n";
     }
 
     Pokemon(const Pokemon& other) {
@@ -55,7 +64,7 @@ public:
 
     ~Pokemon()
     {
-        cout << name << " has been put back in the poke ball.\n";
+        //cout << name << " has been put back in the poke ball.\n";
     }
 
 };
@@ -110,6 +119,12 @@ public:
         return chosen_pokemon;
     }
 
+    void NextDialogue()
+    {
+        cout << "(Press ENTER to continue)";
+        cin.get(); 
+    }
+
     ~Player()
     {
 
@@ -131,12 +146,12 @@ public:
     void AskName()
     {
         cout << "\nTrainer! Before you embark on your journey, the Pokemon world needs to know who you are." << endl;
-        cout << "Time to step up and tell us your name and remember a great name is the start of every great adventure." << endl;
+        cout << "Time to step up and tell us your name and remember a great name is the start of every great adventure. [Please Enter Your Name]" << endl;
     }
 
     void PokemonSelectIntro()
     {
-        cout << "\nToday is a momentous day—you will be choosing your very first Pokémon.\n\n";
+        cout << "\nToday is a momentous day. You will be choosing your very first Pokémon.\n\n";
     }
 
     void OfferPokemonChoices()
@@ -176,6 +191,49 @@ public:
         cout << "You are now ready to embark on your journey! Get ready to explore the vast world of Pokemon!\n";
     }
 
+    void ExplainMainQuest(Player& player)
+    {
+        cout << "Professor Oak: Oak-ay " + player.player_name + " I am about to explain your grand upcoming adventure\n" << endl;
+        player.NextDialogue();
+
+        cout << "Professor Oak: You see, becoming a Pokémon Master is no easy feat. It takes courage, wisdom, and a bit of luck.\n" << endl;
+        player.NextDialogue();
+
+        cout << "Professor Oak: Your mission, should you choose to accept it (and trust me, you really don’t have a choice) is to collect all the Pokémon Badges and conquer the Pokémon League.\n" << endl;
+        player.NextDialogue();
+
+        cout << player.player_name + ": Wait... that sounds a lot like every other Pokémon game out there...\n" << endl;
+        player.NextDialogue();
+
+        cout << "Professor Oak: Shhh! Don't break the fourth wall, " << player.player_name << "! This is serious business!\n";
+        player.NextDialogue();
+
+        cout << "\nProfessor Oak: To achieve this, you’ll need to battle wild Pokémon, challenge gym leaders, and of course, keep your Pokémon healthy at the PokeCenter.\n";
+        player.NextDialogue();
+
+        cout << "Professor Oak: Along the way, you'll capture new Pokémon to strengthen your team. Just remember—there’s a limit to how many Pokémon you can carry, so choose wisely!\n";
+        player.NextDialogue();
+
+        cout << "\n" << player.player_name << ": Sounds like a walk in the park... right?\n";
+        player.NextDialogue();
+
+        cout << "Professor Oak: Hah! That’s what they all say! But beware, young Trainer, the path to victory is fraught with challenges. And if you lose a battle... well, let’s just say you'll be starting from square one.\n";
+        player.NextDialogue();
+
+        cout << "\nProfessor Oak: So, what do you say? Are you ready to become the next Pokémon Champion?\n";
+        player.NextDialogue();
+
+        cout << "\n" << player.player_name << ": Ready as I’ll ever be, Professor!\n";
+        player.NextDialogue();
+
+        cout << "\nProfessor Oak: That’s the spirit! Now, your journey begins...\n";
+        player.NextDialogue();
+
+        cout << "Professor Oak: But first... let's just pretend I didn't forget to set up the actual game loop... Ahem, onwards!\n";
+
+
+    }
+
     ~ProfessorOak()
     {}
 };
@@ -206,22 +264,34 @@ int main() {
     //Pokemon pokemon;
 
     oak.GreetPlayer();
+    player.NextDialogue();
+
     oak.AskName();
 
     player.EnterName();
+
+    ClearScreen(); 
     
     oak.PokemonSelectIntro();
+    player.NextDialogue();
+
     oak.OfferPokemonChoices(); 
 
     while (player.ChoosePokemon() == PokemonOptions::InvalidChoice)
     {
+        ClearScreen();
         oak.ChoiceReaction(player);
         oak.OfferPokemonChoices();   
     }
 
     oak.ChoiceReaction(player);
+    player.NextDialogue();
 
     oak.CongratulatePlayer(player);
+    player.NextDialogue();
+
+    ClearScreen();
+    oak.ExplainMainQuest(player);
 
     return 0;
 }
