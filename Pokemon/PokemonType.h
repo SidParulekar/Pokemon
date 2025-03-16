@@ -4,5 +4,9 @@ enum class PokemonType
     FIRE,
     GRASS,
     WATER,
-    ELECTRIC
+    ELECTRIC,
+    POISON,
+    ROCK,
+    BUG,
+    NORMAL
 };
