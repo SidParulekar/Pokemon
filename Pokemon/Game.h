@@ -1,6 +1,7 @@
 #pragma once
 #include "Grass.h"
 
+
 class Player;
 
 class Game
@@ -10,7 +11,8 @@ private:
 
 public:    
     Game();
+
     void GameLoop(Player& player);
 
-    
+    ~Game();
 };
