@@ -21,7 +21,46 @@ Pokemon::Pokemon(const Pokemon& other) {
     name = other.name;
     type = other.type;
     health = other.health;
-    cout << "A new Pokemon has been copied from " << other.name << "!\n";
+    //cout << "A new Pokemon has been copied from " << other.name << "!\n";
+}
+
+string Pokemon::GetPokemonType(PokemonType type)
+{
+    switch (type)
+    {
+    case PokemonType::FIRE:
+        return "Fire";
+        break;
+
+    case PokemonType::GRASS:
+        return "Grass";
+        break;
+
+    case PokemonType::WATER:
+        return "Water";
+        break;
+
+    case PokemonType::ELECTRIC:
+        return "Electric";
+        break;
+
+    case PokemonType::POISON:
+        return "Poison";
+        break;
+
+    case PokemonType::ROCK:
+        return "Rock";
+        break;
+
+    case PokemonType::BUG:
+        return "Bug";
+        break;
+
+    case PokemonType::NORMAL:
+        return "Normal";
+        break;
+    }
+    
 }
 
  void Pokemon::Attack() 
