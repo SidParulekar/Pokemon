@@ -11,6 +11,7 @@ public:
     string name;
     PokemonType type;
     int health;
+    int attack_power;
     int max_health = health;
 
     Pokemon();
@@ -24,6 +25,11 @@ public:
     void Attack(Pokemon& target);
 
     void TakeDamage(int damage);
+
+    inline void Heal()
+    {
+        health = max_health;
+    }
 
     bool isFainted();
 
