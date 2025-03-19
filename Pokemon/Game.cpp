@@ -3,6 +3,7 @@
 #include "Pokemon.h"
 #include "PokemonType.h"
 #include "WildPokemonEncounterManager.h"
+#include "BattleManager.h"
 
 
 Game::Game()
@@ -40,6 +41,11 @@ void Game::GameLoop(Player& player)
             encountered_pokemon = encounter_manager.GetRandomPokemonFromGrass(forest_grass);
 
             cout << "You have encountered a " + encountered_pokemon.GetPokemonType(encountered_pokemon.type) + " pokemon called " + encountered_pokemon.name + "\n\n";
+            
+            BattleManager battle;
+
+            battle.Battle(player.player_pokemon, encountered_pokemon);
+            
             break;
         }
            

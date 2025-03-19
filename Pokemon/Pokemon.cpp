@@ -63,10 +63,35 @@ string Pokemon::GetPokemonType(PokemonType type)
     
 }
 
- void Pokemon::Attack() 
+void Pokemon::Attack(Pokemon& target)
 {
-    cout << name << "Attacks with a powerful move!\n";
+    int damage = 10;
+    cout << name + "attacks " + target.name + " for " << damage << " damage!\n\n";
+    target.TakeDamage(damage);
 }
+
+ void Pokemon::TakeDamage(int damage)
+ {
+     health -= damage;
+
+     if (health <= 0)
+     {
+         health = 0;
+     }
+ }
+
+ bool Pokemon::isFainted()
+ {
+     if (health <= 0)
+     {
+         return true;
+     }
+     
+     else
+     {
+         return false;
+     }
+ }
 
 Pokemon::~Pokemon()
 {
