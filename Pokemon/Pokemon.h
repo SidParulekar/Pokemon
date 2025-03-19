@@ -7,12 +7,14 @@ enum class PokemonType;
 
 class Pokemon
 {
-public:
-    string name;
-    PokemonType type;
+private:
     int health;
     int attack_power;
     int max_health = health;
+
+public:
+    string name;
+    PokemonType type;
 
     Pokemon();
    

@@ -46,7 +46,7 @@ void Game::GameLoop(Player& player)
             
             BattleManager battle;
 
-            battle.Battle(player.player_pokemon, encountered_pokemon);
+            battle.StartBattle(player.player_pokemon, encountered_pokemon);
             
             break;
         }
