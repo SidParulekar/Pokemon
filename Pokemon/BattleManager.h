@@ -1,4 +1,5 @@
 #pragma once
+#include "BattleState.h"
 
 class Pokemon;
 
@@ -8,6 +9,11 @@ public:
 	void StartBattle(Pokemon& player_pokemon, Pokemon& opponent);
 
 private:
-	void Battle(Pokemon& player_pokemon, Pokemon& opponent);
-	void BattleOutcome(Pokemon& player_pokemon, Pokemon& opponent);
+	BattleState battle_state;
+
+	void Battle();
+
+	void UpdateBattleState();
+
+	void BattleOutcome();
 };

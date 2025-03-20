@@ -8,11 +8,12 @@ Pokemon::Pokemon()
     health = 10;*/
 }
 
-Pokemon::Pokemon(string p_name, PokemonType p_type, int p_health)
+Pokemon::Pokemon(string p_name, PokemonType p_type, int p_health, int p_attack)
 {
     name = p_name;
     type = p_type;
     health = p_health;
+    attack_power = p_attack;
 
     //cout << name << " has been released.\n";
 }
@@ -21,6 +22,7 @@ Pokemon::Pokemon(const Pokemon& other) {
     name = other.name;
     type = other.type;
     health = other.health;
+    attack_power = other.attack_power;
     //cout << "A new Pokemon has been copied from " << other.name << "!\n";
 }
 

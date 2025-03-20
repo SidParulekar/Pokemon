@@ -3,31 +3,53 @@
 
 void BattleManager::StartBattle(Pokemon& player_pokemon, Pokemon& opponent)
 {
-	Battle(player_pokemon, opponent);
+	battle_state.player_pokemon = &player_pokemon;
+	battle_state.opponent_pokemon = &opponent;
+	battle_state.player_turn = true;
+	battle_state.battle_ongoing = true;
+
+	Battle();
 }
 
-void BattleManager::Battle(Pokemon& player_pokemon, Pokemon& opponent)
+void BattleManager::Battle()
 {
-	while (!player_pokemon.isFainted() && !opponent.isFainted())
+	while (battle_state.battle_ongoing)
 	{
-		player_pokemon.Attack(opponent);
-
-		if (!opponent.isFainted())
+		if (battle_state.player_turn)
 		{
-			opponent.Attack(player_pokemon);
+			battle_state.player_pokemon->Attack(*battle_state.opponent_pokemon);
+			battle_state.player_turn = false;
+			UpdateBattleState();
+			continue;
 		}
+		
+		else
+		{
+			battle_state.opponent_pokemon->Attack(*battle_state.player_pokemon);
+			battle_state.player_turn = true;
+			UpdateBattleState(); 
+		}
+	
 	}	
 }
 
-void BattleManager::BattleOutcome(Pokemon& player_pokemon, Pokemon& opponent)
+void BattleManager::UpdateBattleState()
 {
-	if (opponent.isFainted())
+	if (battle_state.player_pokemon->isFainted() || battle_state.opponent_pokemon->isFainted())
 	{
-		cout << "You have defeated " + opponent.name + "!";
+		battle_state.battle_ongoing = false;
+	}
+}
+
+void BattleManager::BattleOutcome()
+{
+	if (battle_state.opponent_pokemon->isFainted())
+	{
+		cout << "You have defeated " + battle_state.opponent_pokemon->name + "!";
 	}
 
 	else
 	{
-		cout << opponent.name + " has got the better of you. Train more and try again!";
+		cout << battle_state.opponent_pokemon->name + " has got the better of you. Train more and try again!";
 	}
 }

@@ -9,9 +9,9 @@
 Game::Game()
 {
     forest_grass = { "Forest",
-                    {Pokemon("Pidgey", PokemonType::NORMAL, 40),
-                     Pokemon("Caterpie", PokemonType::BUG, 35),
-                     Pokemon("Zubat", PokemonType::POISON, 30)},
+                    {Pokemon("Pidgey", PokemonType::NORMAL, 80, 15),
+                     Pokemon("Caterpie", PokemonType::BUG, 75, 20),
+                     Pokemon("Zubat", PokemonType::POISON, 70, 25)},
                     80 };
 }
 

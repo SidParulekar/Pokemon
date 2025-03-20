@@ -18,7 +18,7 @@ public:
 
     Pokemon();
    
-    Pokemon(string p_name, PokemonType p_type, int p_health);
+    Pokemon(string p_name, PokemonType p_type, int p_health, int p_attack);
      
     Pokemon(const Pokemon& other);
 
