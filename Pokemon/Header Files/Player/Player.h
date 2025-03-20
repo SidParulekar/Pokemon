@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-#include "Pokemon.h"
+#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\Pokemon.h"
 using namespace std;
 
 enum class PokemonOptions;

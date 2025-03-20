@@ -1,5 +1,5 @@
-#include "Pokemon.h"
-#include "PokemonType.h"
+#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\Pokemon.h"
+#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\PokemonType.h"
 
 Pokemon::Pokemon()
 {

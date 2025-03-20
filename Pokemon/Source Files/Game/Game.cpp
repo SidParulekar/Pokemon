@@ -1,9 +1,9 @@
-#include "Game.h"
-#include "Player.h"
-#include "Pokemon.h"
-#include "PokemonType.h"
-#include "WildPokemonEncounterManager.h"
-#include "BattleManager.h"
+#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Game\Game.h"
+#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Player\Player.h"
+#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\Pokemon.h"
+#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\PokemonType.h"
+#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\WildPokemonEncounterManager.h"
+#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Battle\BattleManager.h"
 
 
 Game::Game()

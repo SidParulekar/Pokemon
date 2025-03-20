@@ -1,5 +1,5 @@
-#include "BattleManager.h"
-#include "Pokemon.h"
+#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Battle\BattleManager.h"
+#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\Pokemon.h"
 
 void BattleManager::StartBattle(Pokemon& player_pokemon, Pokemon& opponent)
 {

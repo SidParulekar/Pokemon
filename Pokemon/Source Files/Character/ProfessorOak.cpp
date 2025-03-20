@@ -1,6 +1,6 @@
-#include "ProfessorOak.h"
-#include "Player.h"
-#include "PokemonOptions.h"
+#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Character\ProfessorOak.h"
+#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Player\Player.h"
+#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\PokemonOptions.h"
 
 ProfessorOak::ProfessorOak()
 {}
