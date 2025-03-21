@@ -1,7 +1,7 @@
-#include "Player.h"
-#include "PokemonOptions.h"
-#include "PokemonType.h"
+#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Player\Player.h"
+#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\PokemonType.h"
 
+using namespace N_Player;
 
 Player::Player()
 {
@@ -26,15 +26,15 @@ PokemonOptions Player::ChoosePokemon()
     switch (chosen_pokemon)
     {
     case PokemonOptions::Bulbasaur:
-        player_pokemon = Pokemon("Bulbasaur", PokemonType::GRASS, 100);
+        player_pokemon = Pokemon("Bulbasaur", PokemonType::GRASS, 100, 15);
         break;
 
     case PokemonOptions::Charmander:
-        player_pokemon = Pokemon("Charmander", PokemonType::FIRE, 100);
+        player_pokemon = Pokemon("Charmander", PokemonType::FIRE, 100, 20);
         break;
 
     case PokemonOptions::Squirtle:
-        player_pokemon = Pokemon("Squirtle", PokemonType::WATER, 100);
+        player_pokemon = Pokemon("Squirtle", PokemonType::WATER, 100, 10);
         break;
 
     default:

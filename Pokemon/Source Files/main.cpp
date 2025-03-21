@@ -1,11 +1,16 @@
 #include <iostream>
-#include "UtilityFunctions.h"
-#include "PokemonOptions.h"
-#include "Player.h"
-#include "ProfessorOak.h"
-#include "Game.h"
+#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Utility\UtilityFunctions.h"
+#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\PokemonOptions.h"
+#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Player\Player.h"
+#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Character\ProfessorOak.h"
+#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Game\Game.h"
 
 using namespace std;
+
+using namespace N_Character;
+using namespace N_Player;
+using namespace N_Game;
+using namespace N_Utility;
 
 int main() {
     

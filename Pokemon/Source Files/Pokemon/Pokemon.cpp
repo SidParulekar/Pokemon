@@ -1,5 +1,7 @@
-#include "Pokemon.h"
-#include "PokemonType.h"
+#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\Pokemon.h"
+#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\PokemonType.h"
+
+using namespace N_Pokemon;
 
 Pokemon::Pokemon()
 {
@@ -8,11 +10,12 @@ Pokemon::Pokemon()
     health = 10;*/
 }
 
-Pokemon::Pokemon(string p_name, PokemonType p_type, int p_health)
+Pokemon::Pokemon(string p_name, PokemonType p_type, int p_health, int p_attack)
 {
     name = p_name;
     type = p_type;
     health = p_health;
+    attack_power = p_attack;
 
     //cout << name << " has been released.\n";
 }
@@ -21,6 +24,7 @@ Pokemon::Pokemon(const Pokemon& other) {
     name = other.name;
     type = other.type;
     health = other.health;
+    attack_power = other.attack_power;
     //cout << "A new Pokemon has been copied from " << other.name << "!\n";
 }
 
@@ -63,10 +67,35 @@ string Pokemon::GetPokemonType(PokemonType type)
     
 }
 
- void Pokemon::Attack() 
+void Pokemon::Attack(Pokemon& target)
 {
-    cout << name << "Attacks with a powerful move!\n";
+    int damage = attack_power;
+    cout << name + " attacks " + target.name + " for " << damage << " damage!\n\n";
+    target.TakeDamage(damage);
 }
+
+ void Pokemon::TakeDamage(int damage)
+ {
+     health -= damage;
+
+     if (health <= 0)
+     {
+         health = 0;
+     }
+ }
+
+ bool Pokemon::isFainted()
+ {
+     if (health <= 0)
+     {
+         return true;
+     }
+     
+     else
+     {
+         return false;
+     }
+ }
 
 Pokemon::~Pokemon()
 {
