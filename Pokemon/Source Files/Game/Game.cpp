@@ -5,17 +5,19 @@
 #include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\WildPokemonEncounterManager.h"
 #include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Battle\BattleManager.h"
 
+using namespace N_Game;
+using namespace N_Pokemon;
 
 Game::Game()
 {
     forest_grass = { "Forest",
-                    {Pokemon("Pidgey", PokemonType::NORMAL, 80, 15),
-                     Pokemon("Caterpie", PokemonType::BUG, 75, 20),
-                     Pokemon("Zubat", PokemonType::POISON, 70, 25)},
-                    80 };
+                    {N_Pokemon::Pokemon("Pidgey", PokemonType::NORMAL, 80, 15),
+                     N_Pokemon::Pokemon("Caterpie", PokemonType::BUG, 75, 20), 
+                     N_Pokemon::Pokemon("Zubat", PokemonType::POISON, 70, 25)}, 
+                    80 }; 
 }
 
-void Game::GameLoop(Player& player)
+void Game::GameLoop(N_Player::Player& player)
 {
     bool keepPlaying = true;
 
@@ -36,7 +38,7 @@ void Game::GameLoop(Player& player)
         case 1:
         {
             WildPokemonEncounterManager encounter_manager;
-            Pokemon encountered_pokemon;
+            N_Pokemon::Pokemon encountered_pokemon;
 
             encountered_pokemon = encounter_manager.GetRandomPokemonFromGrass(forest_grass);
 
@@ -44,7 +46,7 @@ void Game::GameLoop(Player& player)
 
             cout << "Get Ready for Battle!\n";
             
-            BattleManager battle;
+            N_Battle::BattleManager battle;
 
             battle.StartBattle(player.player_pokemon, encountered_pokemon);
             
@@ -52,9 +54,9 @@ void Game::GameLoop(Player& player)
         }
            
         case 2:
-            cout << "Nurse Joy: Ah it seems your pokemon is not looking very well. I have just the thing!\n";
+            cout << "\nNurse Joy: Ah it seems your pokemon is not looking very well. I have just the thing!\n";
             player.player_pokemon.Heal();
-            cout << player.player_pokemon.name + "'s health has been fully restored and is ready for battle!\n";
+            cout << player.player_pokemon.name + "'s health has been fully restored and is ready for battle!\n\n";
             break;
 
         case 3:

@@ -1,7 +1,11 @@
 #pragma once
-class UtilityFunctions
+
+namespace N_Utility
 {
-public:
-	static void ClearScreen();
-	static void ClearBuffer();
-};
+	class UtilityFunctions
+	{
+	public:
+		static void ClearScreen();
+		static void ClearBuffer();
+	};
+}

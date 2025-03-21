@@ -1,14 +1,15 @@
 #pragma once
+#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Environment\Grass.h"
 
-struct Grass;
-class Pokemon;
-
-class WildPokemonEncounterManager
+namespace N_Pokemon
 {
-public:
-	WildPokemonEncounterManager();
+	class WildPokemonEncounterManager
+	{
+	public:
+		WildPokemonEncounterManager();
 
-	Pokemon GetRandomPokemonFromGrass(const Grass& environment);
+		Pokemon GetRandomPokemonFromGrass(const N_Environment::Grass& environment);
 
-	~WildPokemonEncounterManager();
-};
+		~WildPokemonEncounterManager();
+	};
+}

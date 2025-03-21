@@ -1,6 +1,8 @@
 #include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\Pokemon.h"
 #include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\PokemonType.h"
 
+using namespace N_Pokemon;
+
 Pokemon::Pokemon()
 {
     /*name = "Pikachu";
@@ -68,7 +70,7 @@ string Pokemon::GetPokemonType(PokemonType type)
 void Pokemon::Attack(Pokemon& target)
 {
     int damage = attack_power;
-    cout << name + "attacks " + target.name + " for " << damage << " damage!\n\n";
+    cout << name + " attacks " + target.name + " for " << damage << " damage!\n\n";
     target.TakeDamage(damage);
 }
 

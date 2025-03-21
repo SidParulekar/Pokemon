@@ -7,6 +7,11 @@
 
 using namespace std;
 
+using namespace N_Character;
+using namespace N_Player;
+using namespace N_Game;
+using namespace N_Utility;
+
 int main() {
     
     Player player;

@@ -1,12 +1,19 @@
 #pragma once
+#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\Pokemon.h"
 
-class Pokemon;
+using namespace N_Pokemon;
 
-struct BattleState
+namespace N_Battle
 {
-	Pokemon* player_pokemon;
-	Pokemon* opponent_pokemon;
+	struct BattleState
+	{
+		N_Pokemon::Pokemon* player_pokemon; 
+		N_Pokemon::Pokemon* opponent_pokemon;
 
-	bool player_turn;
-	bool battle_ongoing;
-};
+		bool player_turn;
+		bool battle_ongoing;
+	};
+}
+	
+
+

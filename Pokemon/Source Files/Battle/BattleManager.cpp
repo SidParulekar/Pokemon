@@ -1,5 +1,6 @@
 #include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Battle\BattleManager.h"
-#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\Pokemon.h"
+
+using namespace N_Battle;
 
 void BattleManager::StartBattle(Pokemon& player_pokemon, Pokemon& opponent)
 {
@@ -38,6 +39,7 @@ void BattleManager::UpdateBattleState()
 	if (battle_state.player_pokemon->isFainted() || battle_state.opponent_pokemon->isFainted())
 	{
 		battle_state.battle_ongoing = false;
+		BattleOutcome();
 	}
 }
 

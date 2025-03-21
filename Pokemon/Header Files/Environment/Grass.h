@@ -1,14 +1,17 @@
 #pragma once
 #include <string>
 #include <vector>
+#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\Pokemon.h"
 
 using namespace std;
 
-class Pokemon;
-
-struct Grass
+namespace N_Environment
 {
-	string environment_type;
-	vector<Pokemon> wild_pokemon_list;  
-	int encounter_rate;	
-};
+	struct Grass
+	{
+		string environment_type;
+		vector<N_Pokemon::Pokemon> wild_pokemon_list;
+		int encounter_rate;
+	};
+}
+

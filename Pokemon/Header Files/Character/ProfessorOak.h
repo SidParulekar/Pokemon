@@ -1,36 +1,42 @@
 #pragma once
 #include <iostream>
+#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Player\Player.h"
 
 using namespace std;
 
-class Player;
+using namespace N_Player;
 
-class ProfessorOak
+namespace N_Character
 {
-public:
-    ProfessorOak();
 
-    void GreetPlayer();
-    
+    class ProfessorOak
+    {
+    public:
+        ProfessorOak();
 
-    void AskName();
-    
+        void GreetPlayer();
 
-    void PokemonSelectIntro();
-    
 
-    void OfferPokemonChoices();
-    
+        void AskName();
 
-    void ChoiceReaction(Player& player);
-    
 
-    void CongratulatePlayer(Player& player);
-    
+        void PokemonSelectIntro();
 
-    void ExplainMainQuest(Player& player);
-    
 
-    ~ProfessorOak();
-   
-};
+        void OfferPokemonChoices();
+
+
+        void ChoiceReaction(Player& player);
+
+
+        void CongratulatePlayer(Player& player);
+
+
+        void ExplainMainQuest(Player& player);
+
+
+        ~ProfessorOak();
+
+    };
+}
+

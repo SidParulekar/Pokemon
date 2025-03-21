@@ -1,25 +1,31 @@
 #pragma once
 #include <iostream>
 #include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\Pokemon.h"
+#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\PokemonOptions.h"
 using namespace std;
 
-enum class PokemonOptions;
+using namespace N_Pokemon;
 
-class Player
+namespace N_Player
 {
-public:
-    string player_name;
-    Pokemon player_pokemon;
-    PokemonOptions chosen_pokemon;
+    class Player
+    {
+    public:
+        string player_name;
+        N_Pokemon::Pokemon player_pokemon; 
+        PokemonOptions chosen_pokemon;
 
-    Player();
+        Player();
 
-    void EnterName();
-   
-    PokemonOptions ChoosePokemon();
-    
-    void NextDialogue();
+        void EnterName();
 
-    ~Player();
-    
-};
+        PokemonOptions ChoosePokemon();
+
+        void NextDialogue();
+
+        ~Player();
+
+    };
+}
+
+
