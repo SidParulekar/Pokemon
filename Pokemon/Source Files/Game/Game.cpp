@@ -1,9 +1,9 @@
-#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Game\Game.h"
-#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Player\Player.h"
-#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\Pokemon.h"
-#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\PokemonType.h"
-#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\WildPokemonEncounterManager.h"
-#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Battle\BattleManager.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Game\Game.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Player\Player.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\Pokemon.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\PokemonType.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\WildPokemonEncounterManager.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Battle\BattleManager.h"
 
 using namespace N_Game;
 using namespace N_Pokemon;

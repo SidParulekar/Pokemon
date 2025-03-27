@@ -1,6 +1,6 @@
-#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Environment\Grass.h"
-#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\Pokemon.h"
-#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\WildPokemonEncounterManager.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Environment\Grass.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\Pokemon.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\WildPokemonEncounterManager.h"
 #include <cstdlib>
 #include <ctime>
 

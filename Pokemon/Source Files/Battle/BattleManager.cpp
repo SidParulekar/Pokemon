@@ -1,4 +1,4 @@
-#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Battle\BattleManager.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Battle\BattleManager.h"
 
 using namespace N_Battle;
 

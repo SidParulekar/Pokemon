@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
-#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\Pokemon.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\Pokemon.h"
 
 using namespace std;
 

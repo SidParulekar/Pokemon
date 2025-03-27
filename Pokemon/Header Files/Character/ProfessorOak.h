@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Player\Player.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Player\Player.h"
 
 using namespace std;
 

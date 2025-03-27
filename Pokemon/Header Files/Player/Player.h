@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
-#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\Pokemon.h"
-#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\PokemonOptions.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\Pokemon.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\PokemonOptions.h"
 using namespace std;
 
 using namespace N_Pokemon;

@@ -1,5 +1,5 @@
-#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Player\Player.h"
-#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\PokemonType.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Player\Player.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\PokemonType.h"
 
 using namespace N_Player;
 

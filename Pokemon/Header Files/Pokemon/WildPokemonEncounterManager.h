@@ -1,5 +1,5 @@
 #pragma once
-#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Environment\Grass.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Environment\Grass.h"
 
 namespace N_Pokemon
 {
