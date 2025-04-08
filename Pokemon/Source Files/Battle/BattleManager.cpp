@@ -1,4 +1,4 @@
-#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Battle\BattleManager.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Battle\BattleManager.h"
 
 using namespace N_Battle;
 
@@ -47,11 +47,14 @@ void BattleManager::BattleOutcome()
 {
 	if (battle_state.opponent_pokemon->isFainted())
 	{
-		cout << "You have defeated " + battle_state.opponent_pokemon->name + "!";
+		cout << "You have defeated " + battle_state.opponent_pokemon->GetPokemonName() + "!";
 	}
 
 	else
 	{
-		cout << battle_state.opponent_pokemon->name + " has got the better of you. Train more and try again!";
+		cout << battle_state.opponent_pokemon->GetPokemonName() + " has got the better of you. Train more and try again!";
 	}
+
+	//delete battle_state.player_pokemon;
+	//delete battle_state.opponent_pokemon;
 }

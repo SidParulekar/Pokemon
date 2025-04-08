@@ -1,5 +1,9 @@
-#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Player\Player.h"
-#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\PokemonType.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Player\Player.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\PokemonType.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\Bulbasaur.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\Charmander.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\Squirtle.h"
+
 
 using namespace N_Player;
 
@@ -17,6 +21,10 @@ void Player::EnterName()
 
 PokemonOptions Player::ChoosePokemon()
 {
+    N_Pokemon::N_Pokemons::Bulbasaur bulbasaur;
+    N_Pokemon::N_Pokemons::Charmander charmander;
+    N_Pokemon::N_Pokemons::Squirtle squirtle;
+
     int choice;
 
     cin >> choice;
@@ -26,15 +34,15 @@ PokemonOptions Player::ChoosePokemon()
     switch (chosen_pokemon)
     {
     case PokemonOptions::Bulbasaur:
-        player_pokemon = Pokemon("Bulbasaur", PokemonType::GRASS, 100, 15);
+        player_pokemon = bulbasaur;
         break;
 
     case PokemonOptions::Charmander:
-        player_pokemon = Pokemon("Charmander", PokemonType::FIRE, 100, 20);
+        player_pokemon = charmander; 
         break;
 
     case PokemonOptions::Squirtle:
-        player_pokemon = Pokemon("Squirtle", PokemonType::WATER, 100, 10);
+        player_pokemon = squirtle; 
         break;
 
     default:

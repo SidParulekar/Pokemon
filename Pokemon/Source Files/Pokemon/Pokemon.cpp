@@ -1,5 +1,5 @@
-#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\Pokemon.h"
-#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\PokemonType.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\Pokemon.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\PokemonType.h"
 
 using namespace N_Pokemon;
 
@@ -26,6 +26,11 @@ Pokemon::Pokemon(const Pokemon& other) {
     health = other.health;
     attack_power = other.attack_power;
     //cout << "A new Pokemon has been copied from " << other.name << "!\n";
+}
+
+PokemonType Pokemon::GetType()
+{
+    return type;
 }
 
 string Pokemon::GetPokemonType(PokemonType type)
@@ -65,6 +70,11 @@ string Pokemon::GetPokemonType(PokemonType type)
         break;
     }
     
+}
+
+string Pokemon::GetPokemonName()
+{
+    return name;
 }
 
 void Pokemon::Attack(Pokemon& target)

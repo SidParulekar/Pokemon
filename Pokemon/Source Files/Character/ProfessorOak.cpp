@@ -1,4 +1,4 @@
-#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Character\ProfessorOak.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Character\ProfessorOak.h"
 
 namespace N_Character
 {
@@ -55,7 +55,7 @@ namespace N_Character
 
     void ProfessorOak::CongratulatePlayer(Player& player)
     {
-        cout << player.player_pokemon.name + " and you, " + player.player_name + " are going to be really good friends\n";
+        cout << player.player_pokemon.GetPokemonName() + " and you, " + player.player_name + " are going to be really good friends\n";
         cout << "You are now ready to embark on your journey! Get ready to explore the vast world of Pokemon!\n";
     }
 

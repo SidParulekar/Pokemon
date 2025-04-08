@@ -1,6 +1,6 @@
 #pragma once
-#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Environment\Grass.h"
-#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Player\Player.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Environment\Grass.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Player\Player.h"
 
 using namespace N_Environment;
 using namespace N_Player;

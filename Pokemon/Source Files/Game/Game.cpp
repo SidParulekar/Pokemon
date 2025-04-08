@@ -1,19 +1,24 @@
-#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Game\Game.h"
-#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Player\Player.h"
-#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\Pokemon.h"
-#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\PokemonType.h"
-#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Pokemon\WildPokemonEncounterManager.h"
-#include "..\..\..\..\..\GitHub\Pokemon\Pokemon\Header Files\Battle\BattleManager.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Game\Game.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Player\Player.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\Pokemon.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\PokemonType.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\Pidgy.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\Caterpie.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\Zubat.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\WildPokemonEncounterManager.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Battle\BattleManager.h"
 
 using namespace N_Game;
 using namespace N_Pokemon;
 
 Game::Game()
 {
+    N_Pokemon::N_Pokemons::Pidgy pidgy; 
+    N_Pokemon::N_Pokemons::Caterpie caterpie;
+    N_Pokemon::N_Pokemons::Zubat zubat;
+
     forest_grass = { "Forest",
-                    {N_Pokemon::Pokemon("Pidgey", PokemonType::NORMAL, 80, 15),
-                     N_Pokemon::Pokemon("Caterpie", PokemonType::BUG, 75, 20), 
-                     N_Pokemon::Pokemon("Zubat", PokemonType::POISON, 70, 25)}, 
+                    {pidgy, caterpie, zubat},
                     80 }; 
 }
 
@@ -42,7 +47,7 @@ void Game::GameLoop(N_Player::Player& player)
 
             encountered_pokemon = encounter_manager.GetRandomPokemonFromGrass(forest_grass);
 
-            cout << "You have encountered a " + encountered_pokemon.GetPokemonType(encountered_pokemon.type) + " pokemon called " + encountered_pokemon.name + "\n\n";
+            cout << "You have encountered a " + encountered_pokemon.GetPokemonType(encountered_pokemon.GetType()) + " pokemon called " + encountered_pokemon.GetPokemonName() + "\n\n";
 
             cout << "Get Ready for Battle!\n";
             
@@ -56,7 +61,7 @@ void Game::GameLoop(N_Player::Player& player)
         case 2:
             cout << "\nNurse Joy: Ah it seems your pokemon is not looking very well. I have just the thing!\n";
             player.player_pokemon.Heal();
-            cout << player.player_pokemon.name + "'s health has been fully restored and is ready for battle!\n\n";
+            cout << player.player_pokemon.GetPokemonName() + "'s health has been fully restored and is ready for battle!\n\n";
             break;
 
         case 3:
