@@ -28,6 +28,11 @@ Pokemon::Pokemon(const Pokemon& other) {
     //cout << "A new Pokemon has been copied from " << other.name << "!\n";
 }
 
+PokemonType Pokemon::GetType()
+{
+    return type;
+}
+
 string Pokemon::GetPokemonType(PokemonType type)
 {
     switch (type)
@@ -65,6 +70,11 @@ string Pokemon::GetPokemonType(PokemonType type)
         break;
     }
     
+}
+
+string Pokemon::GetPokemonName()
+{
+    return name;
 }
 
 void Pokemon::Attack(Pokemon& target)

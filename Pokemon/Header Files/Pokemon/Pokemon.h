@@ -9,22 +9,25 @@ namespace N_Pokemon
 
     class Pokemon
     {
-    private:
+    protected:
+        string name;
+        PokemonType type;
         int health;
         int attack_power;
         int max_health = health;
 
     public:
-        string name;
-        PokemonType type;  
-
         Pokemon();
 
         Pokemon(string p_name, PokemonType p_type, int p_health, int p_attack);
 
         Pokemon(const Pokemon& other);
 
+        PokemonType GetType();
+
         string GetPokemonType(PokemonType type);
+
+        string GetPokemonName();
 
         void Attack(Pokemon& target);
 

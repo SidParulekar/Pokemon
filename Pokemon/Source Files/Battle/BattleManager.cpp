@@ -47,11 +47,11 @@ void BattleManager::BattleOutcome()
 {
 	if (battle_state.opponent_pokemon->isFainted())
 	{
-		cout << "You have defeated " + battle_state.opponent_pokemon->name + "!";
+		cout << "You have defeated " + battle_state.opponent_pokemon->GetPokemonName() + "!";
 	}
 
 	else
 	{
-		cout << battle_state.opponent_pokemon->name + " has got the better of you. Train more and try again!";
+		cout << battle_state.opponent_pokemon->GetPokemonName() + " has got the better of you. Train more and try again!";
 	}
 }

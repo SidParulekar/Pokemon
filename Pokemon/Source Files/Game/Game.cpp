@@ -42,7 +42,7 @@ void Game::GameLoop(N_Player::Player& player)
 
             encountered_pokemon = encounter_manager.GetRandomPokemonFromGrass(forest_grass);
 
-            cout << "You have encountered a " + encountered_pokemon.GetPokemonType(encountered_pokemon.type) + " pokemon called " + encountered_pokemon.name + "\n\n";
+            cout << "You have encountered a " + encountered_pokemon.GetPokemonType(encountered_pokemon.GetType()) + " pokemon called " + encountered_pokemon.GetPokemonName() + "\n\n";
 
             cout << "Get Ready for Battle!\n";
             
@@ -56,7 +56,7 @@ void Game::GameLoop(N_Player::Player& player)
         case 2:
             cout << "\nNurse Joy: Ah it seems your pokemon is not looking very well. I have just the thing!\n";
             player.player_pokemon.Heal();
-            cout << player.player_pokemon.name + "'s health has been fully restored and is ready for battle!\n\n";
+            cout << player.player_pokemon.GetPokemonName() + "'s health has been fully restored and is ready for battle!\n\n";
             break;
 
         case 3:
