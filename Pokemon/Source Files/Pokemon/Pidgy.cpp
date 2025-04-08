@@ -13,7 +13,11 @@ namespace N_Pokemon
 		void Pidgy::WingAttack(Pokemon& target)
 		{
 			cout << name << " uses Wing Attack on " << target.GetPokemonName() << "!\n";
-			target.TakeDamage(35);
+			target.TakeDamage(attack_power);
+		}
+
+		Pidgy::~Pidgy()
+		{
 		}
 	}
 }

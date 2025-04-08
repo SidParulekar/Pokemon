@@ -12,6 +12,8 @@ namespace N_Pokemon
 
 			void ThunderShock(Pokemon& target);
 
+			~Pikachu();
+
 		};
 	}
 }

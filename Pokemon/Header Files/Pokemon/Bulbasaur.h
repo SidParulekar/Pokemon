@@ -5,15 +5,17 @@ namespace N_Pokemon
 {
 	namespace N_Pokemons
 	{
-		class Zubat :public Pokemon
+		class Bulbasaur :public Pokemon
 		{
 		public:
-			Zubat();
+			Bulbasaur();
 
-			void SuperSonic(Pokemon& target);
+			void VineWhip(Pokemon& target);
 
-			~Zubat();
+			~Bulbasaur();
 
 		};
 	}
 }
+
+

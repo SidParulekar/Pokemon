@@ -2,6 +2,9 @@
 #include "..\..\..\..\Pokemon\Pokemon\Header Files\Player\Player.h"
 #include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\Pokemon.h"
 #include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\PokemonType.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\Pidgy.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\Caterpie.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\Zubat.h"
 #include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\WildPokemonEncounterManager.h"
 #include "..\..\..\..\Pokemon\Pokemon\Header Files\Battle\BattleManager.h"
 
@@ -10,10 +13,12 @@ using namespace N_Pokemon;
 
 Game::Game()
 {
+    N_Pokemon::N_Pokemons::Pidgy pidgy; 
+    N_Pokemon::N_Pokemons::Caterpie caterpie;
+    N_Pokemon::N_Pokemons::Zubat zubat;
+
     forest_grass = { "Forest",
-                    {N_Pokemon::Pokemon("Pidgey", PokemonType::NORMAL, 80, 15),
-                     N_Pokemon::Pokemon("Caterpie", PokemonType::BUG, 75, 20), 
-                     N_Pokemon::Pokemon("Zubat", PokemonType::POISON, 70, 25)}, 
+                    {pidgy, caterpie, zubat},
                     80 }; 
 }
 

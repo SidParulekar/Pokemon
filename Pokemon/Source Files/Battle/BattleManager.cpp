@@ -54,4 +54,7 @@ void BattleManager::BattleOutcome()
 	{
 		cout << battle_state.opponent_pokemon->GetPokemonName() + " has got the better of you. Train more and try again!";
 	}
+
+	//delete battle_state.player_pokemon;
+	//delete battle_state.opponent_pokemon;
 }

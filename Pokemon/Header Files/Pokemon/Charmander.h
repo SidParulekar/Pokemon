@@ -5,14 +5,14 @@ namespace N_Pokemon
 {
 	namespace N_Pokemons
 	{
-		class Zubat :public Pokemon
+		class Charmander :public Pokemon
 		{
 		public:
-			Zubat();
+			Charmander();
 
-			void SuperSonic(Pokemon& target);
+			void FlameBurst(Pokemon& target);
 
-			~Zubat();
+			~Charmander();
 
 		};
 	}
