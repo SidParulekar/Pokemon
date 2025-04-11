@@ -21,9 +21,6 @@ void Player::EnterName()
 
 PokemonOptions Player::ChoosePokemon()
 {
-    N_Pokemon::N_Pokemons::Bulbasaur bulbasaur;
-    N_Pokemon::N_Pokemons::Charmander charmander;
-    N_Pokemon::N_Pokemons::Squirtle squirtle;
 
     int choice;
 
@@ -34,17 +31,26 @@ PokemonOptions Player::ChoosePokemon()
     switch (chosen_pokemon)
     {
     case PokemonOptions::Bulbasaur:
+    {
+        N_Pokemon::N_Pokemons::Bulbasaur bulbasaur; 
         player_pokemon = bulbasaur;
         break;
-
+    }
+        
     case PokemonOptions::Charmander:
-        player_pokemon = charmander; 
+    {
+        N_Pokemon::N_Pokemons::Charmander charmander;
+        player_pokemon = charmander;
         break;
+    }
 
     case PokemonOptions::Squirtle:
-        player_pokemon = squirtle; 
+    {
+        N_Pokemon::N_Pokemons::Squirtle squirtle; 
+        player_pokemon = squirtle;
         break;
-
+    }
+       
     default:
         chosen_pokemon = PokemonOptions::InvalidChoice;
         break;
