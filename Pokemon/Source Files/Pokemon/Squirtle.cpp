@@ -10,6 +10,11 @@ namespace N_Pokemon
 		{
 		}
 
+		void Squirtle::Attack(Pokemon& target)
+		{
+			WaterSplash(target);
+		}
+
 		void Squirtle::WaterSplash(Pokemon& target)
 		{
 			cout << name << " uses Water Splash on " << target.GetPokemonName() << "!\n";

@@ -10,6 +10,8 @@ namespace N_Pokemon
 		public:
 			Bulbasaur();
 
+			void Attack(Pokemon& target) override;
+
 			void VineWhip(Pokemon& target);
 
 			~Bulbasaur();

@@ -10,6 +10,11 @@ namespace N_Pokemon
 		{
 		}
 
+		void Bulbasaur::Attack(Pokemon& target)
+		{
+			VineWhip(target);
+		}
+
 		void Bulbasaur::VineWhip(Pokemon& target)
 		{
 			cout << name << " uses Vine Whip on " << target.GetPokemonName() << "!\n";

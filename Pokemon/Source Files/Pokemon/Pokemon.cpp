@@ -77,12 +77,6 @@ string Pokemon::GetPokemonName()
     return name;
 }
 
-void Pokemon::Attack(Pokemon& target)
-{
-    int damage = attack_power;
-    cout << name + " attacks " + target.name + " for " << damage << " damage!\n\n";
-    target.TakeDamage(damage);
-}
 
  void Pokemon::TakeDamage(int damage)
  {

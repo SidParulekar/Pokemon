@@ -10,6 +10,11 @@ namespace N_Pokemon
 		{
 		}
 
+		void Zubat::Attack(Pokemon& target)
+		{
+			SuperSonic(target);
+		}
+
 		void Zubat::SuperSonic(Pokemon& target)
 		{
 			cout << name << " uses Supersonic on " << target.GetPokemonName() << "!\n";

@@ -10,6 +10,11 @@ namespace N_Pokemon
 		{
 		}
 
+		void Charmander::Attack(Pokemon& target)
+		{
+			FlameBurst(target);
+		}
+
 		void Charmander::FlameBurst(Pokemon& target)
 		{
 			cout << name << " uses Flame Burst on " << target.GetPokemonName() << "!\n";
