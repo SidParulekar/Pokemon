@@ -10,15 +10,15 @@ namespace N_Pokemon
 		{
 		}
 
-		void Caterpie::Attack(Pokemon& target)
+		void Caterpie::Attack(Pokemon*& target)
 		{
 			BugBite(target);
 		}
 
-		void Caterpie::BugBite(Pokemon& target)
+		void Caterpie::BugBite(Pokemon*& target)
 		{
-			cout << name << " uses Bug Bite on " << target.GetPokemonName() << "!\n";
-			target.TakeDamage(attack_power);
+			cout << name << " uses Bug Bite on " << target->GetPokemonName() << "!\n";
+			target->TakeDamage(attack_power);
 		}
 
 		Caterpie::~Caterpie()

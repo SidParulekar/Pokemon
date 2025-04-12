@@ -10,15 +10,15 @@ namespace N_Pokemon
 		{
 		}
 
-		void Squirtle::Attack(Pokemon& target)
+		void Squirtle::Attack(Pokemon*& target)
 		{
 			WaterSplash(target);
 		}
 
-		void Squirtle::WaterSplash(Pokemon& target)
+		void Squirtle::WaterSplash(Pokemon*& target)
 		{
-			cout << name << " uses Water Splash on " << target.GetPokemonName() << "!\n";
-			target.TakeDamage(attack_power);
+			cout << name << " uses Water Splash on " << target->GetPokemonName() << "!\n";
+			target->TakeDamage(attack_power);
 		}
 
 		Squirtle::~Squirtle()

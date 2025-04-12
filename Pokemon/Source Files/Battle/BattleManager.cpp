@@ -2,10 +2,10 @@
 
 using namespace N_Battle;
 
-void BattleManager::StartBattle(Pokemon& player_pokemon, Pokemon& opponent)
+void BattleManager::StartBattle(Pokemon*& player_pokemon, Pokemon*& opponent)
 {
-	battle_state.player_pokemon = &player_pokemon;
-	battle_state.opponent_pokemon = &opponent;
+	battle_state.player_pokemon = player_pokemon;
+	battle_state.opponent_pokemon = opponent;
 	battle_state.player_turn = true;
 	battle_state.battle_ongoing = true;
 
@@ -18,7 +18,7 @@ void BattleManager::Battle()
 	{
 		if (battle_state.player_turn)
 		{
-			battle_state.player_pokemon->Attack(*battle_state.opponent_pokemon);
+			battle_state.player_pokemon->Attack(battle_state.opponent_pokemon);
 			battle_state.player_turn = false;
 			UpdateBattleState();
 			continue;
@@ -26,7 +26,7 @@ void BattleManager::Battle()
 		
 		else
 		{
-			battle_state.opponent_pokemon->Attack(*battle_state.player_pokemon);
+			battle_state.opponent_pokemon->Attack(battle_state.player_pokemon);
 			battle_state.player_turn = true;
 			UpdateBattleState(); 
 		}

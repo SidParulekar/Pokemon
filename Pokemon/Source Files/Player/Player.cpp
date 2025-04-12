@@ -6,6 +6,8 @@
 
 
 using namespace N_Player;
+using namespace N_Pokemon;
+using namespace N_Pokemons;
 
 Player::Player()
 {
@@ -32,22 +34,19 @@ PokemonOptions Player::ChoosePokemon()
     {
     case PokemonOptions::Bulbasaur:
     {
-        N_Pokemon::N_Pokemons::Bulbasaur bulbasaur; 
-        player_pokemon = bulbasaur;
+        player_pokemon = new Bulbasaur(); 
         break;
     }
         
     case PokemonOptions::Charmander:
     {
-        N_Pokemon::N_Pokemons::Charmander charmander;
-        player_pokemon = charmander;
+        player_pokemon = new Charmander();
         break;
     }
 
     case PokemonOptions::Squirtle:
     {
-        N_Pokemon::N_Pokemons::Squirtle squirtle; 
-        player_pokemon = squirtle;
+        player_pokemon = new Squirtle(); 
         break;
     }
        
@@ -67,5 +66,5 @@ void Player::NextDialogue()
 
 Player::~Player()
 {
-
+    delete player_pokemon;
 }

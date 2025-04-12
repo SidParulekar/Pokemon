@@ -1,6 +1,5 @@
 #include "..\..\..\..\Pokemon\Pokemon\Header Files\Game\Game.h"
 #include "..\..\..\..\Pokemon\Pokemon\Header Files\Player\Player.h"
-#include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\Pokemon.h"
 #include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\PokemonType.h"
 #include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\Pidgy.h"
 #include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\Caterpie.h"
@@ -10,16 +9,19 @@
 
 using namespace N_Game;
 using namespace N_Pokemon;
+using namespace N_Pokemons;
 
 Game::Game()
 {
-    N_Pokemon::N_Pokemons::Pidgy pidgy; 
-    N_Pokemon::N_Pokemons::Caterpie caterpie;
-    N_Pokemon::N_Pokemons::Zubat zubat;
+   
+    forest_grass.environment_type = "Forest";
 
-    forest_grass = { "Forest",
-                    {pidgy, caterpie, zubat},
-                    80 }; 
+    forest_grass.wild_pokemon_list.push_back(new Pidgy());
+    forest_grass.wild_pokemon_list.push_back(new Caterpie());
+    forest_grass.wild_pokemon_list.push_back(new Zubat());
+
+    forest_grass.encounter_rate = 80;
+                     
 }
 
 void Game::GameLoop(N_Player::Player& player)
@@ -43,11 +45,10 @@ void Game::GameLoop(N_Player::Player& player)
         case 1:
         {
             WildPokemonEncounterManager encounter_manager;
-            N_Pokemon::Pokemon encountered_pokemon;
 
             encountered_pokemon = encounter_manager.GetRandomPokemonFromGrass(forest_grass);
 
-            cout << "You have encountered a " + encountered_pokemon.GetPokemonType(encountered_pokemon.GetType()) + " pokemon called " + encountered_pokemon.GetPokemonName() + "\n\n";
+            cout << "You have encountered a " + encountered_pokemon->GetPokemonType(encountered_pokemon->GetType()) + " pokemon called " + encountered_pokemon->GetPokemonName() + "\n\n";
 
             cout << "Get Ready for Battle!\n";
             
@@ -60,8 +61,8 @@ void Game::GameLoop(N_Player::Player& player)
            
         case 2:
             cout << "\nNurse Joy: Ah it seems your pokemon is not looking very well. I have just the thing!\n";
-            player.player_pokemon.Heal();
-            cout << player.player_pokemon.GetPokemonName() + "'s health has been fully restored and is ready for battle!\n\n";
+            player.player_pokemon->Heal();
+            cout << player.player_pokemon->GetPokemonName() + "'s health has been fully restored and is ready for battle!\n\n";
             break;
 
         case 3:
@@ -86,4 +87,16 @@ void Game::GameLoop(N_Player::Player& player)
 
 Game::~Game()
 {
+    delete encountered_pokemon;
+
+    for (Pokemon* p : forest_grass.wild_pokemon_list)
+    {
+        if (p != encountered_pokemon)
+        {
+            delete p;
+        }
+       
+    }
+
+    forest_grass.wild_pokemon_list.clear();
 }

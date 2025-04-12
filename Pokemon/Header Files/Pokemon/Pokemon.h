@@ -29,7 +29,7 @@ namespace N_Pokemon
 
         string GetPokemonName();
 
-        virtual void Attack(Pokemon& target) = 0;
+        virtual void Attack(Pokemon*& target) = 0;
 
         void TakeDamage(int damage);
 

@@ -9,15 +9,15 @@ namespace N_Pokemon
 		{
 		}
 
-		void Pikachu::Attack(Pokemon& target)
+		void Pikachu::Attack(Pokemon*& target)
 		{
 			ThunderShock(target);
 		}
 
-		void Pikachu::ThunderShock(Pokemon& target)
+		void Pikachu::ThunderShock(Pokemon*& target)
 		{
-			cout << name << " uses Thunder Shock on " << target.GetPokemonName() << "!\n";
-			target.TakeDamage(attack_power);
+			cout << name << " uses Thunder Shock on " << target->GetPokemonName() << "!\n";
+			target->TakeDamage(attack_power);
 		}
 
 		Pikachu::~Pikachu()

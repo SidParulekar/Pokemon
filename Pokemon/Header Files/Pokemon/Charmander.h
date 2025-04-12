@@ -10,9 +10,9 @@ namespace N_Pokemon
 		public:
 			Charmander();
 
-			void Attack(Pokemon& target) override;
+			void Attack(Pokemon*& target) override;
 
-			void FlameBurst(Pokemon& target);
+			void FlameBurst(Pokemon*& target);
 
 			~Charmander();
 
