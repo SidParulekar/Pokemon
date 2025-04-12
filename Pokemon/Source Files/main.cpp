@@ -14,47 +14,51 @@ using namespace N_Utility;
 
 int main() {
     
-    Player player;
-    ProfessorOak oak;
-    Game game;
+    Player *player = new Player();
+    ProfessorOak *oak = new ProfessorOak();
+    Game *game = new Game();
 
-    oak.GreetPlayer();
-    player.NextDialogue();
+    oak->GreetPlayer();
+    player->NextDialogue();
 
-    oak.AskName();
+    oak->AskName();
 
-    player.EnterName();
+    player->EnterName();
 
     UtilityFunctions::ClearScreen();
 
     UtilityFunctions::ClearBuffer(); 
     
-    oak.PokemonSelectIntro();
-    player.NextDialogue();
+    oak->PokemonSelectIntro();
+    player->NextDialogue();
 
-    oak.OfferPokemonChoices(); 
+    oak->OfferPokemonChoices();
 
-    while (player.ChoosePokemon() == PokemonOptions::InvalidChoice)
+    while (player->ChoosePokemon() == PokemonOptions::InvalidChoice)
     {
-        UtilityFunctions::ClearScreen(); 
-        oak.ChoiceReaction(player);
-        oak.OfferPokemonChoices();   
+        UtilityFunctions::ClearScreen();
+        oak->ChoiceReaction(*player);
+        oak->OfferPokemonChoices();
     }
 
-    UtilityFunctions::ClearBuffer(); 
+    UtilityFunctions::ClearBuffer();
 
-    oak.ChoiceReaction(player);
-    player.NextDialogue();
+    oak->ChoiceReaction(*player);
+    player->NextDialogue();
 
-    oak.CongratulatePlayer(player);
-    player.NextDialogue();
+    oak->CongratulatePlayer(*player);
+    player->NextDialogue();
 
-    UtilityFunctions::ClearScreen();  
-    oak.ExplainMainQuest(player);
-    player.NextDialogue(); 
+    UtilityFunctions::ClearScreen();
+    oak->ExplainMainQuest(*player);
+    player->NextDialogue();
 
-    UtilityFunctions::ClearScreen();  
-    game.GameLoop(player);
+    UtilityFunctions::ClearScreen();
+    game->GameLoop(*player);
+
+    delete player;
+    delete oak;
+    delete game; 
 
     return 0;
 }
