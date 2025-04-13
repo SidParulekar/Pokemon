@@ -21,7 +21,7 @@ namespace N_Player
 
         PokemonOptions ChoosePokemon();
 
-        void NextDialogue();
+        static void NextDialogue();
 
         ~Player();
 

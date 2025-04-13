@@ -1,7 +1,6 @@
 #include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\Caterpie.h"
 #include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\PokemonType.h"
 
-
 namespace N_Pokemon
 {
 	namespace N_Pokemons

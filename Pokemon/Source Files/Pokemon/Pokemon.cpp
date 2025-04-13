@@ -88,6 +88,11 @@ string Pokemon::GetPokemonName()
      }
  }
 
+ int Pokemon::GetHealth()
+ {
+     return health;
+ }
+
  bool Pokemon::isFainted()
  {
      if (health <= 0)

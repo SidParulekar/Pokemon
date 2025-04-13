@@ -1,4 +1,5 @@
 #include "..\..\..\..\Pokemon\Pokemon\Header Files\Battle\BattleManager.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Player\Player.h"
 
 using namespace N_Battle;
 
@@ -20,14 +21,15 @@ void BattleManager::Battle()
 		{
 			battle_state.player_pokemon->Attack(battle_state.opponent_pokemon);
 			battle_state.player_turn = false;
+			N_Player::Player::NextDialogue();
 			UpdateBattleState();
-			continue;
 		}
 		
 		else
 		{
 			battle_state.opponent_pokemon->Attack(battle_state.player_pokemon);
 			battle_state.player_turn = true;
+			N_Player::Player::NextDialogue();  
 			UpdateBattleState(); 
 		}
 	
@@ -36,23 +38,29 @@ void BattleManager::Battle()
 
 void BattleManager::UpdateBattleState()
 {
+	cout << battle_state.player_pokemon->GetPokemonName() << "'s HP: " << battle_state.player_pokemon->GetHealth() << "\n\n";
+
+	cout << battle_state.opponent_pokemon->GetPokemonName() << "'s HP: " << battle_state.opponent_pokemon->GetHealth() << "\n\n";
+
 	if (battle_state.player_pokemon->isFainted() || battle_state.opponent_pokemon->isFainted())
 	{
 		battle_state.battle_ongoing = false;
 		BattleOutcome();
 	}
+
+
 }
 
 void BattleManager::BattleOutcome()
 {
 	if (battle_state.opponent_pokemon->isFainted())
 	{
-		cout << "You have defeated " + battle_state.opponent_pokemon->GetPokemonName() + "!";
+		cout << "\nYou have defeated " + battle_state.opponent_pokemon->GetPokemonName() + "!";
 	}
 
 	else
 	{
-		cout << battle_state.opponent_pokemon->GetPokemonName() + " has got the better of you. Train more and try again!";
+		cout << battle_state.opponent_pokemon->GetPokemonName() + " has got the better of you. Train more and try again!\n";
 	}
 
 	//delete battle_state.player_pokemon;

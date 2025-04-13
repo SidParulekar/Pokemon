@@ -38,6 +38,8 @@ namespace N_Pokemon
             health = max_health;
         }
 
+        int GetHealth();
+
         bool isFainted();
 
         ~Pokemon();
