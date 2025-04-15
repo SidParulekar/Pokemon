@@ -12,7 +12,7 @@ namespace N_Pokemon
 
 			void Attack(Pokemon*& target) override;
 
-			void WingAttack(Pokemon*& target);
+			//void WingAttack(Pokemon*& target);
 
 			~Pidgy();
 

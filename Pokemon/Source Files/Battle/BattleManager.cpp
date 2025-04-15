@@ -1,5 +1,6 @@
 #include "..\..\..\..\Pokemon\Pokemon\Header Files\Battle\BattleManager.h"
 #include "..\..\..\..\Pokemon\Pokemon\Header Files\Player\Player.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Utility\UtilityFunctions.h"
 
 using namespace N_Battle;
 
@@ -20,6 +21,7 @@ void BattleManager::Battle()
 		if (battle_state.player_turn)
 		{
 			battle_state.player_pokemon->Attack(battle_state.opponent_pokemon);
+			N_Utility::UtilityFunctions::ClearBuffer();
 			battle_state.player_turn = false;
 			N_Player::Player::NextDialogue();
 			UpdateBattleState();
@@ -42,13 +44,13 @@ void BattleManager::UpdateBattleState()
 
 	cout << battle_state.opponent_pokemon->GetPokemonName() << "'s HP: " << battle_state.opponent_pokemon->GetHealth() << "\n\n";
 
-	if (battle_state.player_pokemon->isFainted() || battle_state.opponent_pokemon->isFainted())
+	if (battle_state.player_pokemon->isFainted() || battle_state.player_pokemon->IsBlownAway() || battle_state.opponent_pokemon->isFainted())
 	{
 		battle_state.battle_ongoing = false;
+		battle_state.player_pokemon->DisableReducedPower();
+		battle_state.player_pokemon->BlownAway(false); //Reset blown away status  
 		BattleOutcome();
 	}
-
-
 }
 
 void BattleManager::BattleOutcome()

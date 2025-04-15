@@ -19,6 +19,10 @@ namespace N_Game
 
         void GameLoop(Player& player);
 
+        bool PokemonLowHealth(Player& player);
+
+        int PokemonHealthWarning(Player& player);
+
         ~Game();
     };
 }

@@ -19,6 +19,7 @@ void Player::EnterName()
     cin >> player_name;
 
     cout << "\nWelcome " + player_name + " to the start of your adventure in the Pokemon World." << endl;
+
 }
 
 PokemonOptions Player::ChoosePokemon()
@@ -60,7 +61,7 @@ PokemonOptions Player::ChoosePokemon()
 
 void Player::NextDialogue()
 {
-    cout << "(Press ENTER to continue)";
+    cout << "(Press ENTER to continue)\n";
     cin.get();
 }
 

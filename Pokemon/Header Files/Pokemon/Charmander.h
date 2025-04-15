@@ -12,7 +12,7 @@ namespace N_Pokemon
 
 			void Attack(Pokemon*& target) override;
 
-			void FlameBurst(Pokemon*& target);
+			//void FlameBurst(Pokemon*& target);
 
 			~Charmander();
 

@@ -25,9 +25,13 @@ int main() {
 
     player->EnterName();
 
+    UtilityFunctions::ClearBuffer(); 
+
+    Player::NextDialogue(); 
+
     UtilityFunctions::ClearScreen();
 
-    UtilityFunctions::ClearBuffer(); 
+    //UtilityFunctions::ClearBuffer(); 
     
     oak->PokemonSelectIntro();
     Player::NextDialogue();

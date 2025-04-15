@@ -12,7 +12,7 @@ namespace N_Pokemon
 
 			void Attack(Pokemon*& target) override;
 
-			void WaterSplash(Pokemon*& target);
+			//void WaterSplash(Pokemon*& target);
 
 			~Squirtle();
 

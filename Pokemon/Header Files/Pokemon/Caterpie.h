@@ -12,7 +12,7 @@ namespace N_Pokemon
 
 			void Attack(Pokemon*& target) override;
 
-			void BugBite(Pokemon*& target);
+			//void BugBite(Pokemon*& target);
 
 			~Caterpie();
 

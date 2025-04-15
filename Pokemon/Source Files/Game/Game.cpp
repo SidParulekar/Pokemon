@@ -24,7 +24,7 @@ Game::Game()
                      
 }
 
-void Game::GameLoop(N_Player::Player& player)
+void Game::GameLoop(Player& player)
 {
     bool keepPlaying = true;
 
@@ -44,6 +44,11 @@ void Game::GameLoop(N_Player::Player& player)
         {
         case 1:
         {
+            if (PokemonLowHealth(player))
+            {
+                break;
+            }
+
             WildPokemonEncounterManager encounter_manager;
 
             encountered_pokemon = encounter_manager.GetRandomPokemonFromGrass(forest_grass);
@@ -83,6 +88,40 @@ void Game::GameLoop(N_Player::Player& player)
             break;
         }
     }
+}
+
+bool Game::PokemonLowHealth(Player& player)
+{
+    if (player.player_pokemon->GetHealth() <= 0)
+    {
+        cout << "Your pokemon has fainted and is unable to participate in a battle. Visit the Poke Center to heal your pokemon.\n";
+        return true;
+    }
+
+    else if (player.player_pokemon->GetHealth() < 50)
+    {
+        if (PokemonHealthWarning(player) != 1)
+        {
+            return true;
+        }
+
+        else return false;
+    }
+
+    else return false;
+
+}
+
+int Game::PokemonHealthWarning(Player& player)
+{
+    int choice;
+    if (player.player_pokemon->GetHealth() < 50)
+    {
+        cout << "Your pokemon's health is below 50 HP. We suggest visiting the Poke Center to heal your pokemon. Are you sure you want to enter a battle? (Press 1 to continue and any other key to go back)\n";
+        cin >> choice;
+    }
+
+    return choice; 
 }
 
 Game::~Game()
