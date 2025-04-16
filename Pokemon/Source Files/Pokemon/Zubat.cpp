@@ -6,14 +6,30 @@ namespace N_Pokemon
 {
 	namespace N_Pokemons
 	{
-		Zubat::Zubat():Pokemon("Zubat", PokemonType::POISON, 100, 20)
+		Zubat::Zubat():Pokemon("Zubat", PokemonType::POISON, 100, {PokemonMove("Supersonic", 20), PokemonMove("Tackle", 10), PokemonMove("Leech Life", 10) })
 		{
 		}
 
-		void Zubat::SuperSonic(Pokemon& target)
+		void Zubat::Attack(Pokemon*& target)
 		{
-			cout << name << " uses Supersonic on " << target.GetPokemonName() << "!\n";
-			target.TakeDamage(attack_power);
+			selected_move = SelectRandomMove();
+
+			UseSelectedMove(selected_move, target);
+
+			if (selected_move.name == "Leech Life")
+			{
+				int health_increase = selected_move.power * 0.6;
+
+				health += health_increase;
+
+				if (health > max_health)
+				{
+					health = max_health;
+				}
+
+				cout << name << " has just increased its HP by " << health_increase << " as a result of this move!\n";
+			}	
+			
 		}
 
 		Zubat::~Zubat()

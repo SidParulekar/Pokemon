@@ -6,6 +6,8 @@
 
 
 using namespace N_Player;
+using namespace N_Pokemon;
+using namespace N_Pokemons;
 
 Player::Player()
 {
@@ -17,6 +19,7 @@ void Player::EnterName()
     cin >> player_name;
 
     cout << "\nWelcome " + player_name + " to the start of your adventure in the Pokemon World." << endl;
+
 }
 
 PokemonOptions Player::ChoosePokemon()
@@ -32,22 +35,19 @@ PokemonOptions Player::ChoosePokemon()
     {
     case PokemonOptions::Bulbasaur:
     {
-        N_Pokemon::N_Pokemons::Bulbasaur bulbasaur; 
-        player_pokemon = bulbasaur;
+        player_pokemon = new Bulbasaur(); 
         break;
     }
         
     case PokemonOptions::Charmander:
     {
-        N_Pokemon::N_Pokemons::Charmander charmander;
-        player_pokemon = charmander;
+        player_pokemon = new Charmander();
         break;
     }
 
     case PokemonOptions::Squirtle:
     {
-        N_Pokemon::N_Pokemons::Squirtle squirtle; 
-        player_pokemon = squirtle;
+        player_pokemon = new Squirtle(); 
         break;
     }
        
@@ -61,11 +61,11 @@ PokemonOptions Player::ChoosePokemon()
 
 void Player::NextDialogue()
 {
-    cout << "(Press ENTER to continue)";
+    cout << "(Press ENTER to continue)\n";
     cin.get();
 }
 
 Player::~Player()
 {
-
+    delete player_pokemon;
 }

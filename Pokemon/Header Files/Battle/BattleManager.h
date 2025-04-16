@@ -6,7 +6,7 @@ namespace N_Battle
 	class BattleManager
 	{
 	public:
-		void StartBattle(N_Pokemon::Pokemon& player_pokemon, N_Pokemon::Pokemon& opponent);
+		void StartBattle(N_Pokemon::Pokemon*& player_pokemon, N_Pokemon::Pokemon*& opponent);
 
 	private:
 		BattleState battle_state;

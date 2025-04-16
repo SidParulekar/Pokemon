@@ -12,7 +12,7 @@ namespace N_Player
     {
     public:
         string player_name;
-        N_Pokemon::Pokemon player_pokemon; 
+        N_Pokemon::Pokemon* player_pokemon; 
         PokemonOptions chosen_pokemon;
 
         Player();
@@ -21,7 +21,7 @@ namespace N_Player
 
         PokemonOptions ChoosePokemon();
 
-        void NextDialogue();
+        static void NextDialogue();
 
         ~Player();
 

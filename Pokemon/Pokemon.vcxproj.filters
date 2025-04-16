@@ -116,5 +116,8 @@
     <ClInclude Include="Header Files\Pokemon\Bulbasaur.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Header Files\Pokemon\PokemonMove.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

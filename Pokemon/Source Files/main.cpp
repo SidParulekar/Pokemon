@@ -19,18 +19,22 @@ int main() {
     Game *game = new Game();
 
     oak->GreetPlayer();
-    player->NextDialogue();
+    Player::NextDialogue();
 
     oak->AskName();
 
     player->EnterName();
 
+    UtilityFunctions::ClearBuffer(); 
+
+    Player::NextDialogue(); 
+
     UtilityFunctions::ClearScreen();
 
-    UtilityFunctions::ClearBuffer(); 
+    //UtilityFunctions::ClearBuffer(); 
     
     oak->PokemonSelectIntro();
-    player->NextDialogue();
+    Player::NextDialogue();
 
     oak->OfferPokemonChoices();
 
@@ -44,14 +48,14 @@ int main() {
     UtilityFunctions::ClearBuffer();
 
     oak->ChoiceReaction(*player);
-    player->NextDialogue();
+    Player::NextDialogue();
 
     oak->CongratulatePlayer(*player);
-    player->NextDialogue();
+    Player::NextDialogue();
 
     UtilityFunctions::ClearScreen();
     oak->ExplainMainQuest(*player);
-    player->NextDialogue();
+    Player::NextDialogue();
 
     UtilityFunctions::ClearScreen();
     game->GameLoop(*player);

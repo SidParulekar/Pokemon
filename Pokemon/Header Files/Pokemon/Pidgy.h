@@ -10,7 +10,9 @@ namespace N_Pokemon
 		public:
 			Pidgy();
 
-			void WingAttack(Pokemon& target);
+			void Attack(Pokemon*& target) override;
+
+			//void WingAttack(Pokemon*& target);
 
 			~Pidgy();
 

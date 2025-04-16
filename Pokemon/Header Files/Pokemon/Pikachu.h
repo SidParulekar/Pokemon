@@ -10,7 +10,9 @@ namespace N_Pokemon
 		public:
 			Pikachu();
 
-			void ThunderShock(Pokemon& target);
+			void Attack(Pokemon*& target) override;
+
+			void ThunderShock(Pokemon*& target);
 
 			~Pikachu();
 

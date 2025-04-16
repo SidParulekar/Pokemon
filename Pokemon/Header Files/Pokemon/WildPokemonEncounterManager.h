@@ -8,7 +8,7 @@ namespace N_Pokemon
 	public:
 		WildPokemonEncounterManager();
 
-		Pokemon GetRandomPokemonFromGrass(const N_Environment::Grass& environment);
+		Pokemon* GetRandomPokemonFromGrass(const N_Environment::Grass& environment);
 
 		~WildPokemonEncounterManager();
 	};
