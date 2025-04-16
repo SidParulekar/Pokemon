@@ -58,6 +58,7 @@ void BattleManager::BattleOutcome()
 	if (battle_state.opponent_pokemon->isFainted())
 	{
 		cout << "\nYou have defeated " + battle_state.opponent_pokemon->GetPokemonName() + "!";
+		battle_state.opponent_pokemon->Heal(); 
 	}
 
 	else
