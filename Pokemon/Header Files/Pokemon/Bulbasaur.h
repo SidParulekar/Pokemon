@@ -8,9 +8,6 @@ namespace N_Pokemon
 		class Bulbasaur :public Pokemon
 		{
 
-		private:
-			int exhaustion;
-
 		public:
 			Bulbasaur();
 

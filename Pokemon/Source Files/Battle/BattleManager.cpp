@@ -20,18 +20,38 @@ void BattleManager::Battle()
 	{
 		if (battle_state.player_turn)
 		{
-			battle_state.player_pokemon->Attack(battle_state.opponent_pokemon);
-			N_Utility::UtilityFunctions::ClearBuffer();
+			if (battle_state.player_pokemon->IsParalyzed())
+			{
+				battle_state.player_pokemon->EffectOngoing();
+				battle_state.player_pokemon->ClearEffect();
+			}
+
+			else
+			{
+				battle_state.player_pokemon->Attack(battle_state.opponent_pokemon);
+				N_Utility::UtilityFunctions::ClearBuffer();
+				N_Player::Player::NextDialogue();
+			}
+
 			battle_state.player_turn = false;
-			N_Player::Player::NextDialogue();
 			UpdateBattleState();
 		}
 		
 		else
 		{
-			battle_state.opponent_pokemon->Attack(battle_state.player_pokemon);
+			if (battle_state.opponent_pokemon->IsParalyzed())
+			{
+				battle_state.opponent_pokemon->EffectOngoing(); 
+				battle_state.opponent_pokemon->ClearEffect();
+			}
+
+			else
+			{
+				battle_state.opponent_pokemon->Attack(battle_state.player_pokemon);
+				N_Player::Player::NextDialogue();
+			}
+
 			battle_state.player_turn = true;
-			N_Player::Player::NextDialogue();  
 			UpdateBattleState(); 
 		}
 	

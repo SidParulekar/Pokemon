@@ -1,5 +1,6 @@
 #include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\Pokemon.h"
 #include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\PokemonType.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Status Effect\ParalyzedEffect.h"
 #include <cstdlib>
 #include <ctime>
 
@@ -32,6 +33,13 @@ Pokemon::Pokemon(string p_name, PokemonType p_type, int p_health, vector<Pokemon
     health = p_health;
     max_health = health;
     pokemon_moves = p_moves;
+
+    reduced_power = false;
+    damage_reduction = 0;
+
+    blown_away = false;
+
+    paralysis = false;
 
     srand(time(0)); 
 }
@@ -126,6 +134,16 @@ string Pokemon::GetPokemonName()
      reduced_power = false;
  }
 
+ void Pokemon::Paralyzed(bool paralyzed)
+ {
+     paralysis = paralyzed;
+ }
+
+ bool Pokemon::IsParalyzed()
+ {
+     return paralysis;
+ }
+
  int Pokemon::GetPower(PokemonMove move)
  {
      int power;
@@ -198,6 +216,46 @@ string Pokemon::GetPokemonName()
      return choice;
  }
 
+ bool Pokemon::EffectOngoing()
+ {
+    return applied_effect->EffectOngoing(this);
+ }
+
+ bool Pokemon::CanApplyEffect()
+ {
+     return applied_effect == nullptr; 
+ }
+
+ void Pokemon::CreateEffect(N_StatusEffects::StatusEffectType effectToApply)
+ {
+     switch (effectToApply)
+     {
+     case StatusEffectType::PARALYZED:
+         applied_effect = new ParalyzedEffect();
+         break;
+
+     default:
+         applied_effect = nullptr;
+         break;
+     }
+ }
+
+ void Pokemon::ApplyEffect(Pokemon* target)
+ {
+     applied_effect->ApplyEffect(target);
+     target->AppliedEffect(applied_effect);
+ }
+
+ void Pokemon::AppliedEffect(IStatusEffect*& effect)
+ {
+     applied_effect = effect;
+ }
+
+ void Pokemon::ClearEffect()
+ {
+     applied_effect->ClearEffect(this);
+ }
+
  void Pokemon::UseSelectedMove(PokemonMove& move, Pokemon*& target)
  {
      int damage = GetPower(move);
@@ -210,5 +268,5 @@ string Pokemon::GetPokemonName()
 
 Pokemon::~Pokemon()
 {
-    //cout << name << " has been put back in the poke ball.\n";
+    delete applied_effect;
 }

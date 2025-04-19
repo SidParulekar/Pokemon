@@ -1,9 +1,13 @@
 #pragma once
 #include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\PokemonMove.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Status Effect\IStatusEffect.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Status Effect\StatusEffectType.h"
 #include <iostream>
 #include <vector> 
 
 using namespace std;
+
+using namespace N_StatusEffects;
 
 namespace N_Pokemon
 {
@@ -24,6 +28,10 @@ namespace N_Pokemon
         int damage_reduction;
 
         bool blown_away;
+
+        bool paralysis;
+
+        IStatusEffect* applied_effect;
 
     public:
         Pokemon();
@@ -57,11 +65,27 @@ namespace N_Pokemon
 
         void DisableReducedPower();
 
+        void Paralyzed(bool paralyzed);
+
+        bool IsParalyzed();
+
         int GetPower(PokemonMove move);
 
         int GetHealth();
 
         bool isFainted();
+
+        bool EffectOngoing();
+
+        bool CanApplyEffect();
+
+        void AppliedEffect(IStatusEffect*& effect);
+
+        void CreateEffect(N_StatusEffects::StatusEffectType effectToApply); 
+
+        void ApplyEffect(Pokemon* target); 
+
+        void ClearEffect();
 
         PokemonMove SelectMove();
 

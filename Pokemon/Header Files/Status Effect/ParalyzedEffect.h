@@ -2,20 +2,22 @@
 
 #include "IStatusEffect.h"
 
+using namespace N_Pokemon;
+
 namespace N_StatusEffects
 {
     class ParalyzedEffect : public IStatusEffect
     {
     private:
-        int turns_left; // Track the remaining turns for the effect
+        int paralysis;
 
     public:
         ParalyzedEffect();
 
-        void ApplyEffect(Pokemon*& target) override;
+        void ApplyEffect(Pokemon* target) override;
         std::string GetEffectName() override;
-        bool TurnEndEffect(Pokemon*& target) override;
-        void ClearEffect(Pokemon*& target) override;
+        bool EffectOngoing(Pokemon* target) override;
+        void ClearEffect(Pokemon* target) override;
 
         ~ParalyzedEffect();
     };

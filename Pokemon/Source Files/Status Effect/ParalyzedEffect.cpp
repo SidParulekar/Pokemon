@@ -1,4 +1,5 @@
 #include "..\..\..\..\Pokemon\Pokemon\Header Files\Status Effect\ParalyzedEffect.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\Pokemon.h"
 #include <cstdlib>
 #include <ctime>
 
@@ -6,14 +7,19 @@ namespace N_StatusEffects
 {
 	ParalyzedEffect::ParalyzedEffect()
 	{
+		paralysis = 0;
 		srand(time(0));
 	}
 
-	void ParalyzedEffect::ApplyEffect(Pokemon*& target)
+	void ParalyzedEffect::ApplyEffect(N_Pokemon::Pokemon* target) 
 	{
-		turns_left = rand() % 3 + 1;
+		paralysis = rand() % 2;  //50% chance of this pokemon being in paralysis state for next turn i.e. being unable to execute any move
 
-		cout << "Paralyzed Effect has been applied to " << target->GetPokemonName() << " for " << turns_left << " turns!\n";
+		if (paralysis == 1)
+		{
+			target->Paralyzed(true);
+			cout << GetEffectName() << " has been applied for " << target->GetPokemonName() << " as a side effect of this move. This will result in all of its moves being disabled for the next turn!\n";
+		}	
 	}
 
 	std::string ParalyzedEffect::GetEffectName()
@@ -21,14 +27,12 @@ namespace N_StatusEffects
 		return "Paralyzed Effect";
 	}
 
-	bool ParalyzedEffect::TurnEndEffect(Pokemon*& target)
+	bool ParalyzedEffect::EffectOngoing(N_Pokemon::Pokemon* target)
 	{
-		turns_left -= 1;
-
-		if (turns_left <= 0)
+		if (target->IsParalyzed())
 		{
-			ClearEffect(target);
-			cout << target->GetPokemonName() << "is no longer affected by Paralyzed Effect.\n";
+			cout << target->GetPokemonName() << " is unable to use any move as a result of the " << GetEffectName() << " applied after using the move in the previous turn.\n";
+			cout << GetEffectName() << " will be disabled for the next turn and it will be able to use all moves again.\n\n";
 			return true;
 		}
 
@@ -38,9 +42,10 @@ namespace N_StatusEffects
 		}
 	}
 
-	void ParalyzedEffect::ClearEffect(Pokemon*& target)
+	void ParalyzedEffect::ClearEffect(N_Pokemon::Pokemon* target)
 	{
-
+		paralysis = 0;
+		target->Paralyzed(false);
 	}
 
 	ParalyzedEffect::~ParalyzedEffect()

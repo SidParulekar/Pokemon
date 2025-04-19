@@ -164,6 +164,7 @@
     <ClInclude Include="Header Files\Pokemon\Zubat.h" />
     <ClInclude Include="Header Files\Status Effect\IStatusEffect.h" />
     <ClInclude Include="Header Files\Status Effect\ParalyzedEffect.h" />
+    <ClInclude Include="Header Files\Status Effect\StatusEffectType.h" />
     <ClInclude Include="Header Files\Utility\UtilityFunctions.h" />
     <ClInclude Include="Header Files\Pokemon\WildPokemonEncounterManager.h" />
   </ItemGroup>
