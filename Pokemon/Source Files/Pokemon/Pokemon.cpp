@@ -1,6 +1,8 @@
 #include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\Pokemon.h"
 #include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\PokemonType.h"
 #include "..\..\..\..\Pokemon\Pokemon\Header Files\Status Effect\ParalyzedEffect.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Status Effect\BlownAway.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Utility\UtilityFunctions.h"
 #include <cstdlib>
 #include <ctime>
 
@@ -186,14 +188,23 @@ string Pokemon::GetPokemonName()
      return pokemon_moves[move_index];
  }
 
- PokemonMove Pokemon::SelectMove()
+ PokemonMove Pokemon::SelectMove() 
  {
-     PrintPokemonMoves();
+     int move_index=0;
 
-     int move_index = GetPlayerChoice();
+     while (move_index < 1 || move_index > pokemon_moves.size())
+     {
+         PrintPokemonMoves();
 
-     return pokemon_moves[move_index - 1];
+         move_index = GetPlayerChoice();
 
+         if (move_index < 1 || move_index > pokemon_moves.size())
+         {
+             cout << "Invalid choice! Try again!\n";
+         }     
+     }
+     
+     return pokemon_moves[move_index - 1];   
  }
 
  void Pokemon::PrintPokemonMoves()
@@ -210,10 +221,11 @@ string Pokemon::GetPokemonName()
  int Pokemon::GetPlayerChoice()
  {
      int choice;
-
+ 
      cin >> choice;
-
+   
      return choice;
+     
  }
 
  bool Pokemon::EffectOngoing()
@@ -221,9 +233,17 @@ string Pokemon::GetPokemonName()
     return applied_effect->EffectOngoing(this);
  }
 
- bool Pokemon::CanApplyEffect()
+ string Pokemon::GetAppliedEffect()
  {
-     return applied_effect == nullptr; 
+     if (EffectApplied())
+     {
+         return applied_effect->GetEffectName();
+     }   
+ }
+
+ bool Pokemon::EffectApplied()
+ {
+     return applied_effect != nullptr; 
  }
 
  void Pokemon::CreateEffect(N_StatusEffects::StatusEffectType effectToApply)
@@ -231,7 +251,11 @@ string Pokemon::GetPokemonName()
      switch (effectToApply)
      {
      case StatusEffectType::PARALYZED:
-         applied_effect = new ParalyzedEffect();
+         applied_effect = new N_StatusEffects::ParalyzedEffect();
+         break;
+
+     case StatusEffectType::BLOWN:
+         applied_effect = new N_StatusEffects::BlownAway(); 
          break;
 
      default:
@@ -268,5 +292,5 @@ string Pokemon::GetPokemonName()
 
 Pokemon::~Pokemon()
 {
-    delete applied_effect;
+ 
 }

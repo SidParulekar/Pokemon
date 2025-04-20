@@ -140,6 +140,7 @@
     <ClCompile Include="Source Files\Character\ProfessorOak.cpp" />
     <ClCompile Include="Source Files\Pokemon\Squirtle.cpp" />
     <ClCompile Include="Source Files\Pokemon\Zubat.cpp" />
+    <ClCompile Include="Source Files\Status Effect\BlownAway.cpp" />
     <ClCompile Include="Source Files\Status Effect\ParalyzedEffect.cpp" />
     <ClCompile Include="Source Files\Utility\UtilityFunctions.cpp" />
     <ClCompile Include="Source Files\Pokemon\WildPokemonEncounterManager.cpp" />
@@ -162,6 +163,7 @@
     <ClInclude Include="Header Files\Character\ProfessorOak.h" />
     <ClInclude Include="Header Files\Pokemon\Squirtle.h" />
     <ClInclude Include="Header Files\Pokemon\Zubat.h" />
+    <ClInclude Include="Header Files\Status Effect\BlownAway.h" />
     <ClInclude Include="Header Files\Status Effect\IStatusEffect.h" />
     <ClInclude Include="Header Files\Status Effect\ParalyzedEffect.h" />
     <ClInclude Include="Header Files\Status Effect\StatusEffectType.h" />

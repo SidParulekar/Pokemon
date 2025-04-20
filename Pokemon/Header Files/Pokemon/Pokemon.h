@@ -77,7 +77,9 @@ namespace N_Pokemon
 
         bool EffectOngoing();
 
-        bool CanApplyEffect();
+        string GetAppliedEffect();
+
+        bool EffectApplied();
 
         void AppliedEffect(IStatusEffect*& effect);
 

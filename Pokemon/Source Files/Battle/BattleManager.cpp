@@ -64,27 +64,36 @@ void BattleManager::UpdateBattleState()
 
 	cout << battle_state.opponent_pokemon->GetPokemonName() << "'s HP: " << battle_state.opponent_pokemon->GetHealth() << "\n\n";
 
-	if (battle_state.player_pokemon->isFainted() || battle_state.player_pokemon->IsBlownAway() || battle_state.opponent_pokemon->isFainted())
+	if (battle_state.player_pokemon->isFainted() || battle_state.opponent_pokemon->isFainted() || battle_state.player_pokemon->IsBlownAway() || battle_state.opponent_pokemon->IsBlownAway())
 	{
 		battle_state.battle_ongoing = false;
-		battle_state.player_pokemon->DisableReducedPower();
-		battle_state.player_pokemon->BlownAway(false); //Reset blown away status  
+		battle_state.player_pokemon->DisableReducedPower();  
 		BattleOutcome();
 	}
+
 }
 
 void BattleManager::BattleOutcome()
 {
-	if (battle_state.opponent_pokemon->isFainted())
+	if (battle_state.opponent_pokemon->isFainted() || battle_state.opponent_pokemon->IsBlownAway())
 	{
+		if (battle_state.opponent_pokemon->IsBlownAway())
+		{
+			battle_state.opponent_pokemon->ClearEffect(); //Reset blown away status
+		}
 		cout << "\nYou have defeated " + battle_state.opponent_pokemon->GetPokemonName() + "!";
-		battle_state.opponent_pokemon->Heal(); 
 	}
 
 	else
 	{
+		if (battle_state.player_pokemon->IsBlownAway())
+		{
+			battle_state.player_pokemon->ClearEffect(); //Reset blown away status
+		}
 		cout << battle_state.opponent_pokemon->GetPokemonName() + " has got the better of you. Train more and try again!\n";
 	}
+
+	battle_state.opponent_pokemon->Heal();
 
 	//delete battle_state.player_pokemon;
 	//delete battle_state.opponent_pokemon;
