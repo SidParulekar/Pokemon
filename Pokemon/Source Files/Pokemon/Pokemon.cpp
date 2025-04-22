@@ -36,6 +36,8 @@ Pokemon::Pokemon(string p_name, PokemonType p_type, int p_health, vector<Pokemon
     max_health = health;
     pokemon_moves = p_moves;
 
+    applied_effect = nullptr;
+
     reduced_power = false;
     damage_reduction = 0;
 
@@ -292,5 +294,9 @@ string Pokemon::GetPokemonName()
 
 Pokemon::~Pokemon()
 {
+    if (EffectApplied())
+    {
+        delete applied_effect;
+    }
  
 }

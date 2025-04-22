@@ -24,6 +24,7 @@ namespace N_Pokemon
 
 		Pidgy::~Pidgy()
 		{
+			//delete applied_effect;
 		}
 	}
 }

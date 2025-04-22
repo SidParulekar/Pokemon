@@ -31,6 +31,7 @@ namespace N_Pokemon
 
 		Bulbasaur::~Bulbasaur()
 		{
+			//delete applied_effect;
 		}
 	}
 }
