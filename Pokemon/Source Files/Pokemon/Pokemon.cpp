@@ -1,5 +1,8 @@
 #include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\Pokemon.h"
 #include "..\..\..\..\Pokemon\Pokemon\Header Files\Pokemon\PokemonType.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Status Effect\ParalyzedEffect.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Status Effect\BlownAway.h"
+#include "..\..\..\..\Pokemon\Pokemon\Header Files\Utility\UtilityFunctions.h"
 #include <cstdlib>
 #include <ctime>
 
@@ -32,6 +35,15 @@ Pokemon::Pokemon(string p_name, PokemonType p_type, int p_health, vector<Pokemon
     health = p_health;
     max_health = health;
     pokemon_moves = p_moves;
+
+    applied_effect = nullptr;
+
+    reduced_power = false;
+    damage_reduction = 0;
+
+    blown_away = false;
+
+    paralysis = false;
 
     srand(time(0)); 
 }
@@ -126,6 +138,16 @@ string Pokemon::GetPokemonName()
      reduced_power = false;
  }
 
+ void Pokemon::Paralyzed(bool paralyzed)
+ {
+     paralysis = paralyzed;
+ }
+
+ bool Pokemon::IsParalyzed()
+ {
+     return paralysis;
+ }
+
  int Pokemon::GetPower(PokemonMove move)
  {
      int power;
@@ -168,14 +190,23 @@ string Pokemon::GetPokemonName()
      return pokemon_moves[move_index];
  }
 
- PokemonMove Pokemon::SelectMove()
+ PokemonMove Pokemon::SelectMove() 
  {
-     PrintPokemonMoves();
+     int move_index=0;
 
-     int move_index = GetPlayerChoice();
+     while (move_index < 1 || move_index > pokemon_moves.size())
+     {
+         PrintPokemonMoves();
 
-     return pokemon_moves[move_index - 1];
+         move_index = GetPlayerChoice();
 
+         if (move_index < 1 || move_index > pokemon_moves.size())
+         {
+             cout << "Invalid choice! Try again!\n";
+         }     
+     }
+     
+     return pokemon_moves[move_index - 1];   
  }
 
  void Pokemon::PrintPokemonMoves()
@@ -192,10 +223,63 @@ string Pokemon::GetPokemonName()
  int Pokemon::GetPlayerChoice()
  {
      int choice;
-
+ 
      cin >> choice;
-
+   
      return choice;
+     
+ }
+
+ bool Pokemon::EffectOngoing()
+ {
+    return applied_effect->EffectOngoing(this);
+ }
+
+ string Pokemon::GetAppliedEffect()
+ {
+     if (EffectApplied())
+     {
+         return applied_effect->GetEffectName();
+     }   
+ }
+
+ bool Pokemon::EffectApplied()
+ {
+     return applied_effect != nullptr; 
+ }
+
+ void Pokemon::CreateEffect(N_StatusEffects::StatusEffectType effectToApply)
+ {
+     switch (effectToApply)
+     {
+     case StatusEffectType::PARALYZED:
+         applied_effect = new N_StatusEffects::ParalyzedEffect();
+         break;
+
+     case StatusEffectType::BLOWN:
+         applied_effect = new N_StatusEffects::BlownAway(); 
+         break;
+
+     default:
+         applied_effect = nullptr;
+         break;
+     }
+ }
+
+ void Pokemon::ApplyEffect(Pokemon* target)
+ {
+     applied_effect->ApplyEffect(target);
+     target->AppliedEffect(applied_effect);
+ }
+
+ void Pokemon::AppliedEffect(IStatusEffect*& effect)
+ {
+     applied_effect = effect;
+ }
+
+ void Pokemon::ClearEffect()
+ {
+     applied_effect->ClearEffect(this);
  }
 
  void Pokemon::UseSelectedMove(PokemonMove& move, Pokemon*& target)
@@ -210,5 +294,9 @@ string Pokemon::GetPokemonName()
 
 Pokemon::~Pokemon()
 {
-    //cout << name << " has been put back in the poke ball.\n";
+    if (EffectApplied())
+    {
+        delete applied_effect;
+    }
+ 
 }

@@ -7,6 +7,7 @@ namespace N_Pokemon
 	{
 		Pidgy::Pidgy():Pokemon("Pidgey", PokemonType::NORMAL, 100, { PokemonMove("Wing Attack", 35), PokemonMove("Tackle", 10), PokemonMove("Gust", 15) })
 		{
+			CreateEffect(StatusEffectType::BLOWN);
 		}
 
 		void Pidgy::Attack(Pokemon*& target)
@@ -17,18 +18,13 @@ namespace N_Pokemon
 
 			if (selected_move.name == "Gust")
 			{
-				if (rand() % 100 < 20) //20 % chance of this move blowing away the target
-				{
-					cout << target->GetPokemonName() << " was blown away from the battlefield as a result of this move!\n";
-					target->BlownAway(true);
-				}
-			}
-
-			
+				ApplyEffect(target);
+			}			
 		}
 
 		Pidgy::~Pidgy()
 		{
+			//delete applied_effect;
 		}
 	}
 }
